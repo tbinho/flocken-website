@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-flocken-brown bg-white;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-flocken-brown font-bold;
+  }
+  
+  a {
+    @apply text-flocken-olive hover:text-flocken-accent transition-colors;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-flocken-olive text-white rounded-xl font-semibold
+           hover:bg-flocken-accent transition-all hover:scale-105 shadow-soft;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-white text-flocken-olive border-2 border-flocken-olive
+           rounded-xl font-semibold hover:bg-flocken-cream transition-all;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Prose styling for legal pages */
+  .prose {
+    @apply max-w-none text-flocken-brown;
+  }
+  
+  .prose h2 {
+    @apply text-h2 font-bold mt-12 mb-6 text-flocken-brown;
+  }
+  
+  .prose h3 {
+    @apply text-h3 font-bold mt-8 mb-4 text-flocken-brown;
+  }
+  
+  .prose h4 {
+    @apply text-h4 font-semibold mt-6 mb-3 text-flocken-brown;
+  }
+  
+  .prose p {
+    @apply mb-4 leading-relaxed;
+  }
+  
+  .prose ul, .prose ol {
+    @apply my-4 ml-6;
+  }
+  
+  .prose li {
+    @apply mb-2;
+  }
+  
+  .prose strong {
+    @apply font-semibold text-flocken-brown;
+  }
+  
+  .prose a {
+    @apply text-flocken-olive underline hover:text-flocken-accent;
+  }
+  
+  .prose .lead {
+    @apply text-xl text-flocken-gray mb-8;
+  }
+}
+
