@@ -93,6 +93,19 @@ export default function SupportPage() {
           kontakt@flocken.info
         </a>
       </p>
+      
+      <h2 id="ta-bort-konto">Ta bort konto och radera data</h2>
+      <p>
+        Du kan själv radera ditt konto under <strong>Mina sidor</strong> i appen.
+      </p>
+      <p>
+        Du kan även ta kontakt med oss på{' '}
+        <a href="mailto:kontakt@flocken.info" className="text-flocken-olive hover:underline">
+          kontakt@flocken.info
+        </a>{' '}
+        för att få hjälp att radera ditt konto eller ta bort all data som finns 
+        kopplat till ditt konto.
+      </p>
     </>
   );
 }

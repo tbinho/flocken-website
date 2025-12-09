@@ -1,312 +1,350 @@
 export const metadata = {
-  title: "Integritetspolicy",
-  description: "Flockens integritetspolicy och hantering av personuppgifter",
+  title: "Integritetspolicy för Flocken",
+  description: "Integritetspolicy för Flocken - hur vi samlar in, använder och skyddar dina personuppgifter",
 };
 
 export default function IntegritetspolicyPage() {
   return (
     <>
-      <h1>Integritetspolicy</h1>
+      <h1>Integritetspolicy för Flocken</h1>
       
       <p className="lead">
-        Senast uppdaterad: {new Date().toLocaleDateString('sv-SE')}
+        <strong>Senast uppdaterad:</strong> 27 november 2025
       </p>
       
       <p>
-        Flocken ("vi", "oss", eller "vår") respekterar din integritet och är engagerade i att skydda 
-        dina personuppgifter. Denna integritetspolicy förklarar hur vi samlar in, använder, delar 
-        och skyddar dina personuppgifter när du använder vår mobilapplikation Flocken.
+        Denna integritetspolicy beskriver hur vi samlar in, använder, lagrar och skyddar personuppgifter i appen Flocken ("Appen").
+      </p>
+      
+      <p>
+        Vi tar din integritet på allvar och behandlar alltid personuppgifter i enlighet med EU:s dataskyddsförordning (GDPR) och tillämplig svensk lagstiftning.
       </p>
       
       <h2 id="personuppgiftsansvarig">1. Personuppgiftsansvarig</h2>
       <p>
-        Personuppgiftsansvarig för behandlingen av dina personuppgifter är:
+        Personuppgiftsansvarig för behandlingen av personuppgifter i Flocken är:
       </p>
-      <ul>
-        <li><strong>Företag:</strong> Spitakolus AB</li>
-        <li><strong>Organisationsnummer:</strong> 559554-6101</li>
-        <li><strong>Adress:</strong> Svängrumsgatan 46, 421 71 Västra Frölunda</li>
-        <li><strong>E-post:</strong> support@spitakolus.com</li>
-      </ul>
+      <p>
+        <strong>Spitakolus AB</strong><br />
+        Organisationsnummer: 559554-6101<br />
+        E-post: support@spitakolus.com<br />
+        Support: support@spitakolus.com
+      </p>
+      <p>
+        Vid frågor om denna policy eller vår behandling av personuppgifter kan du kontakta oss via ovanstående kontaktuppgifter.
+      </p>
       
-      <h2 id="vilka-uppgifter">2. Vilka personuppgifter samlar vi in?</h2>
+      <h2 id="vilka-uppgifter">2. Vilka personuppgifter vi samlar in</h2>
+      <p>
+        Vi behandlar följande kategorier av personuppgifter:
+      </p>
       
       <h3 id="uppgifter-kontoinformation">2.1 Kontoinformation</h3>
-      <p>När du skapar ett konto samlar vi in:</p>
       <ul>
-        <li><strong>Namn och kontaktuppgifter:</strong> Fullständigt namn, e-postadress, telefonnummer</li>
-        <li><strong>Profilbild:</strong> Valfri avatar/profilbild</li>
-        <li><strong>Kontotyp:</strong> Privatperson eller kennel</li>
-        <li><strong>Kennelinformation</strong> (endast för kennelkonton): Kennelnamn, organisationsnummer, 
-        webbplats, beskrivning</li>
+        <li>E-postadress</li>
+        <li>Lösenord (lagras krypterat, vi kan aldrig se ditt lösenord i klartext)</li>
+        <li>Namn (t.ex. fullständigt namn, förnamn eller användarnamn)</li>
+        <li>Telefonnummer (valfritt)</li>
+        <li>Profilbild (valfritt)</li>
       </ul>
       
-      <h3 id="uppgifter-hundprofiler">2.2 Hundprofiler</h3>
-      <p>När du lägger upp en hund samlar vi in:</p>
+      <h3 id="uppgifter-hundinfo">2.2 Hundinformation</h3>
       <ul>
-        <li><strong>Grundläggande information:</strong> Namn, ras, kön, födelsedatum, vikt, höjd, färg</li>
-        <li><strong>Hälsoinformation:</strong> Hälsotester, tidigare kullar, hälsobeskrivning, stamtavla</li>
-        <li><strong>Bilder:</strong> Upp till 5 bilder per hund</li>
-        <li><strong>Platsuppgifter:</strong> Adress, postnummer, stad, GPS-koordinater (longitude/latitude)</li>
-        <li><strong>Beskrivningar:</strong> Temperament, hundprofil, vad du söker</li>
-        <li><strong>Preferenser:</strong> Öppen för parning, lek/promenader, söker hundvakt, jakt/arbetshund</li>
+        <li>Hundnamn</li>
+        <li>Hundras (inkl. blandras)</li>
+        <li>Kön</li>
+        <li>Ålder/födelseår</li>
+        <li>Storlek (liten, medel, stor)</li>
+        <li>Färg</li>
+        <li>Beskrivning av hunden</li>
+        <li>Bilder på hunden (upp till 6 st)</li>
+        <li>Uppgifter om stamtavla (om du väljer att ange)</li>
+        <li>Hälsoinformation på övergripande nivå (t.ex. kastrerad/steriliserad)</li>
+        <li>Temperament och egenskaper</li>
+      </ul>
+      <p>
+        <strong>Obs:</strong> Du bör aldrig lägga in känsliga uppgifter om varken dig själv eller andra personer (t.ex. sjukdomsdiagnoser, religiös övertygelse, politiska åsikter).
+      </p>
+      
+      <h3 id="uppgifter-plats">2.3 Platsinformation</h3>
+      <ul>
+        <li>GPS-position (för att visa hundar och platser i närheten)</li>
+        <li>Område/adress där hunden typiskt går på promenad</li>
+        <li>Favoritplatser, t.ex. hundrastgårdar och parker</li>
+      </ul>
+      <p>
+        Du kan i din enhet stänga av platsdelning (GPS) när som helst. Viss funktionalitet i appen kan då begränsas.
+      </p>
+      
+      <h3 id="uppgifter-funktion">2.4 Funktionsspecifik data</h3>
+      <ul>
+        <li><strong>Hundvakt:</strong> tillgänglighet, priser, erfarenhet/beskrivning</li>
+        <li><strong>Parning:</strong> information om att hunden är tillgänglig för parning, övergripande parningshistorik (i den mån du själv anger den)</li>
+        <li><strong>Hundrastgårdar:</strong> platser du markerar som favorit eller rekommenderar</li>
+        <li><strong>Meddelanden:</strong> chattkonversationer mellan användare via Flocken</li>
       </ul>
       
-      <h3 id="uppgifter-platsdata">2.3 Platsdata och GPS-tracking</h3>
-      <p>Flocken använder platsdata för olika funktioner:</p>
+      <h3 id="uppgifter-interaktion">2.5 Användarinteraktioner</h3>
       <ul>
-        <li><strong>Hundprofiler (Para/Passa):</strong> GPS-koordinater för att visa hundar och hundvakter på karta. 
-        Din exakta adress visas inte publikt – endast ungefärlig plats.</li>
-        <li><strong>Promenader (Rasta):</strong> När du använder Rasta-funktionen spårar vi din GPS-position 
-        i realtid för att logga din promenadrunda. Du kan välja att spara rundor privat eller dela dem med andra användare.</li>
-        <li><strong>Hundvänliga platser (Besöka):</strong> GPS-koordinater för hundvänliga caféer och restauranger.</li>
-      </ul>
-      <p><strong>OBS:</strong> GPS-data från promenader sparas i vår databas och kan delas med andra användare om du väljer 
-      att göra dina rundor offentliga.</p>
-      
-      <h3 id="uppgifter-meddelanden">2.4 Meddelanden och kommunikation</h3>
-      <p>Vi lagrar:</p>
-      <ul>
-        <li><strong>Konversationer:</strong> Meddelanden mellan användare via appen</li>
-        <li><strong>Metadata:</strong> Tidsstämplar, lässtatus, redigeringshistorik</li>
+        <li>Favoriter (hundar/användare du markerar som favorit)</li>
+        <li>Skickade och mottagna meddelanden</li>
+        <li>Blockerade användare</li>
+        <li>Sökhistorik och filter du använder i appen</li>
+        <li>Tekniska loggar (t.ex. IP-adress, enhetstyp, appversion, tidsstämplar, kraschloggar)</li>
       </ul>
       
-      <h3 id="uppgifter-bokningar">2.5 Bokningar och betalningar (Passa)</h3>
-      <p>När du bokar hundvakt eller erbjuder hundvaktstjänster samlar vi in:</p>
+      <h2 id="varifrån">3. Varifrån vi får uppgifterna</h2>
+      <p>
+        Vi samlar främst in personuppgifter direkt från dig när du:
+      </p>
       <ul>
-        <li><strong>Bokningsuppgifter:</strong> Datum, tid, tjänst, pris, status</li>
-        <li><strong>Betalningsinformation:</strong> Via Stripe (se avsnitt 5.2)</li>
-        <li><strong>Recensioner:</strong> Betyg och recensioner av hundvakter</li>
+        <li>Registrerar konto</li>
+        <li>Skapar eller uppdaterar din profil eller din hunds profil</li>
+        <li>Aktiverar platstjänster</li>
+        <li>Skickar meddelanden i appen</li>
+        <li>Använder olika funktioner (sök, filter, favoriter, blockering m.m.)</li>
       </ul>
+      <p>
+        Viss teknisk data kan samlas in automatiskt via appen (t.ex. enhetstyp, IP-adress, loggar).
+      </p>
       
-      <h3 id="uppgifter-prenumeration">2.6 Prenumerations- och betalningsdata</h3>
-      <p>Vi samlar in:</p>
-      <ul>
-        <li><strong>Prenumerationsstatus:</strong> Aktiv, utgången, avbruten</li>
-        <li><strong>Paketinformation:</strong> Privatperson (22 kr/mån) eller kennel (60 kr/mån)</li>
-        <li><strong>Betalningshistorik:</strong> Transaktioner, belopp, datum</li>
-        <li><strong>Lanserings-kampanj:</strong> Information om din 6-månadersperiod gratis</li>
-      </ul>
+      <h2 id="ändamål">4. Ändamål med behandlingen och rättslig grund</h2>
+      <p>
+        Vi behandlar personuppgifter för följande ändamål:
+      </p>
       
-      <h3 id="uppgifter-automatisk">2.7 Automatiskt insamlad data</h3>
-      <ul>
-        <li><strong>Enhetsdata:</strong> Enhetstyp, operativsystem, app-version</li>
-        <li><strong>Användningsdata:</strong> Funktioner du använder, tidsåtgång, statistik</li>
-        <li><strong>Loggar:</strong> Tekniska loggar för felsökning</li>
-      </ul>
-      
-      <h2 id="hur-anvander">3. Hur använder vi dina personuppgifter?</h2>
-      
-      <h3 id="anvander-tillhandahalla">3.1 Tillhandahålla tjänsten</h3>
+      <h3 id="ändamål-grundfunktioner">4.1 För att tillhandahålla appens grundfunktioner</h3>
+      <p><strong>Exempel på behandlingar:</strong></p>
       <ul>
         <li>Skapa och hantera ditt konto</li>
-        <li>Visa dina hundar på kartan (Para)</li>
-        <li>Matcha dig med andra hundägare</li>
-        <li>Hantera bokningar av hundvakter (Passa)</li>
-        <li>Spåra och visa dina promenader (Rasta)</li>
-        <li>Visa hundvänliga platser (Besöka)</li>
+        <li>Visa hundar och hundägare i närheten</li>
+        <li>Möjliggöra chatt och kontakt mellan användare</li>
+        <li>Visa och hantera favoritmarkeringar och blockeringar</li>
       </ul>
-      
-      <h3 id="anvander-kommunikation">3.2 Kommunikation</h3>
-      <ul>
-        <li>Skicka meddelanden mellan användare</li>
-        <li>Skicka bokningsbekräftelser och påminnelser</li>
-        <li>Skicka viktiga uppdateringar om tjänsten</li>
-      </ul>
-      
-      <h3 id="anvander-betalning">3.3 Betalningar</h3>
-      <ul>
-        <li>Hantera prenumerationer</li>
-        <li>Behandla betalningar för hundvaktstjänster</li>
-        <li>Skicka kvitton och fakturor</li>
-      </ul>
-      
-      <h3 id="anvander-forbattra">3.4 Förbättra tjänsten</h3>
-      <ul>
-        <li>Analysera användningsmönster</li>
-        <li>Förbättra funktionalitet</li>
-        <li>Felsöka tekniska problem</li>
-      </ul>
-      
-      <h2 id="rattslig-grund">4. Rättslig grund för behandling</h2>
-      
-      <p>Vi behandlar dina personuppgifter baserat på följande rättsliga grunder enligt GDPR:</p>
-      
-      <h3 id="grund-avtal">4.1 Fullgörande av avtal (Art. 6.1.b GDPR)</h3>
       <p>
-        Behandling av dina personuppgifter är nödvändig för att tillhandahålla tjänsten du har registrerat dig för, 
-        inklusive att visa hundprofiler, hantera bokningar, och behandla betalningar.
+        <strong>Rättslig grund:</strong> Avtal (artikel 6.1 b GDPR) – behandlingen är nödvändig för att fullgöra avtalet med dig, dvs. att tillhandahålla Flocken enligt våra användarvillkor.
       </p>
       
-      <h3 id="grund-samtycke">4.2 Samtycke (Art. 6.1.a GDPR)</h3>
+      <h3 id="ändamål-hundvakt">4.2 För att erbjuda hundvakt- och parningsfunktioner</h3>
+      <p><strong>Exempel på behandlingar:</strong></p>
+      <ul>
+        <li>Visa användare som erbjuder hundvakt</li>
+        <li>Visa hundar tillgängliga för parning</li>
+        <li>Hantera information om tillgänglighet, pris och kort beskrivning av erfarenhet</li>
+      </ul>
       <p>
-        För vissa behandlingar (t.ex. marknadsföringsutskick, platsdata för vissa funktioner) ber vi om ditt 
-        uttryckliga samtycke. Du kan när som helst återkalla ditt samtycke i appens inställningar.
+        <strong>Rättslig grund:</strong> Avtal (artikel 6.1 b) – för att möjliggöra de funktioner du valt att använda.
       </p>
       
-      <h3 id="grund-intresse">4.3 Berättigat intresse (Art. 6.1.f GDPR)</h3>
-      <p>
-        Vi kan behandla dina uppgifter baserat på vårt berättigade intresse att:
-      </p>
+      <h3 id="ändamål-plats">4.3 För att visa relevant platsinformation och kartor</h3>
+      <p><strong>Exempel på behandlingar:</strong></p>
       <ul>
-        <li>Förbättra tjänstens säkerhet och förhindra bedrägeri</li>
-        <li>Analysera användning för att förbättra appen</li>
-        <li>Kontakta dig angående tjänsterelaterade ärenden</li>
+        <li>Visa hundar och hundägare i närheten</li>
+        <li>Visa och spara favoritplatser, t.ex. hundrastgårdar</li>
+        <li>Använda Google Maps API för kartfunktioner</li>
       </ul>
+      <p>
+        <strong>Rättslig grund:</strong> Avtal (artikel 6.1 b) – för att kunna erbjuda platsbaserade funktioner i appen. Samtycke (artikel 6.1 a) – i de fall din enhet kräver särskilt godkännande för platsdelning (du kan när som helst återkalla ditt samtycke genom att stänga av platsåtkomst).
+      </p>
+      
+      <h3 id="ändamål-support">4.4 För kommunikation och support</h3>
+      <p><strong>Exempel på behandlingar:</strong></p>
+      <ul>
+        <li>Skicka viktig information om appen, villkor eller ändringar i policyn</li>
+        <li>Svara på supportärenden</li>
+        <li>Kontakta dig vid misstanke om missbruk eller brott mot villkor</li>
+      </ul>
+      <p>
+        <strong>Rättslig grund:</strong> Avtal (artikel 6.1 b) – nödvändigt för att kunna hjälpa dig som användare. Berättigat intresse (artikel 6.1 f) – vårt intresse av att administrera appen och ge god kundservice.
+      </p>
+      
+      <h3 id="ändamål-utveckla">4.5 För att förbättra och utveckla appen</h3>
+      <p><strong>Exempel på behandlingar:</strong></p>
+      <ul>
+        <li>Analys av hur appen används (t.ex. vilka funktioner som används mest)</li>
+        <li>Felsökning, kraschloggar och prestandaoptimering</li>
+      </ul>
+      <p>
+        <strong>Rättslig grund:</strong> Berättigat intresse (artikel 6.1 f) – vårt berättigade intresse av att förbättra tjänsten, öka säkerheten och förstå användarbeteenden.
+      </p>
+      
+      <h3 id="ändamål-juridik">4.6 För att följa lagar och hantera tvister</h3>
+      <p><strong>Exempel på behandlingar:</strong></p>
+      <ul>
+        <li>Uppfylla bokförings- och andra rättsliga skyldigheter</li>
+        <li>Hantera eventuella rättsliga krav eller tvister</li>
+      </ul>
+      <p>
+        <strong>Rättslig grund:</strong> Rättslig förpliktelse (artikel 6.1 c) – när vi är skyldiga enligt lag. Berättigat intresse (artikel 6.1 f) – för att bevaka och försvara våra rättsliga intressen.
+      </p>
       
       <h2 id="delning">5. Delning av personuppgifter</h2>
-      
-      <h3 id="delning-anvandare">5.1 Med andra användare</h3>
-      <p>Vissa uppgifter delas med andra användare för att tjänsten ska fungera:</p>
-      <ul>
-        <li><strong>Hundprofiler:</strong> Visas för andra användare på kartan (med ungefärlig plats)</li>
-        <li><strong>Kontaktuppgifter:</strong> Delas med användare du chattar med</li>
-        <li><strong>Promenader:</strong> Om du väljer att dela dina rundor publikt</li>
-        <li><strong>Recensioner:</strong> Recensioner du skriver är offentliga</li>
-      </ul>
-      
-      <h3 id="delning-tjanster">5.2 Med tredjepartstjänster</h3>
-      
-      <h4>Supabase (Backend och databas)</h4>
-      <ul>
-        <li><strong>Vad:</strong> All appdata lagras hos Supabase (PostgreSQL-databas)</li>
-        <li><strong>Plats:</strong> Europa (GDPR-kompatibel)</li>
-        <li><strong>Policy:</strong> <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">supabase.com/privacy</a></li>
-      </ul>
-      
-      <h4>Stripe (Betalningar)</h4>
-      <ul>
-        <li><strong>Vad:</strong> Behandlar prenumerationsbetalningar och hundvakts-betalningar</li>
-        <li><strong>Plats:</strong> USA (Privacy Shield-certifierad)</li>
-        <li><strong>Policy:</strong> <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer">stripe.com/privacy</a></li>
-        <li><strong>OBS:</strong> Vi lagrar ALDRIG kreditkortsinformation – detta hanteras helt av Stripe</li>
-      </ul>
-      
-      <h4>Google Maps API (Kartor och platsdata)</h4>
-      <ul>
-        <li><strong>Vad:</strong> Visar kartor, geocoding av adresser, hundvänliga platser</li>
-        <li><strong>Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
-      </ul>
-      
-      <h4>OpenStreetMap Nominatim (Geokodning)</h4>
-      <ul>
-        <li><strong>Vad:</strong> Konverterar adresser till GPS-koordinater</li>
-        <li><strong>Policy:</strong> <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener noreferrer">OSM Privacy Policy</a></li>
-      </ul>
-      
-      <h3 id="delning-lag">5.3 Rättsliga krav</h3>
       <p>
-        Vi kan dela dina uppgifter om det krävs enligt lag, rättsliga processer, eller för att skydda våra 
-        eller andras rättigheter och säkerhet.
+        <strong>Vi säljer inte dina personuppgifter.</strong>
+      </p>
+      <p>
+        Vi kan dela personuppgifter med följande kategorier av mottagare:
       </p>
       
-      <h2 id="lagring">6. Hur länge sparar vi dina uppgifter?</h2>
-      
-      <ul>
-        <li><strong>Aktiva konton:</strong> Så länge ditt konto är aktivt</li>
-        <li><strong>Raderade konton:</strong> 30 dagar efter radering (för eventuella återställningar), 
-        därefter raderas personuppgifter permanent</li>
-        <li><strong>Meddelanden:</strong> Raderas 90 dagar efter kontoradering</li>
-        <li><strong>Promenaddata:</strong> Sparas så länge du väljer att behålla dem (kan raderas i appen)</li>
-        <li><strong>Betalningshistorik:</strong> 7 år (bokföringskrav)</li>
-        <li><strong>Loggar:</strong> 90 dagar</li>
-      </ul>
-      
-      <h2 id="rattigheter">7. Dina rättigheter enligt GDPR</h2>
-      
-      <p>Du har följande rättigheter gällande dina personuppgifter:</p>
-      
-      <h3 id="ratt-tillgang">7.1 Rätt till tillgång (Art. 15 GDPR)</h3>
+      <h3 id="delning-användare">5.1 Andra användare i appen</h3>
       <p>
-        Du har rätt att få bekräftelse på om vi behandlar dina personuppgifter och få en kopia av dem.
-        <br/>
-        <strong>Hur:</strong> I appen under Inställningar → "Exportera min data"
-      </p>
-      
-      <h3 id="ratt-rattelse">7.2 Rätt till rättelse (Art. 16 GDPR)</h3>
-      <p>
-        Du har rätt att korrigera felaktiga uppgifter.
-        <br/>
-        <strong>Hur:</strong> Redigera direkt i appen under din profil och hundprofiler
-      </p>
-      
-      <h3 id="ratt-radering">7.3 Rätt till radering ("Rätten att bli glömd", Art. 17 GDPR)</h3>
-      <p>
-        Du har rätt att få dina personuppgifter raderade under vissa omständigheter.
-        <br/>
-        <strong>Hur:</strong> I appen under Inställningar → "Radera konto"
-      </p>
-      
-      <h3 id="ratt-begransning">7.4 Rätt till begränsning (Art. 18 GDPR)</h3>
-      <p>
-        Du har rätt att begära att behandlingen av dina uppgifter begränsas under vissa förutsättningar.
-      </p>
-      
-      <h3 id="ratt-dataportabilitet">7.5 Rätt till dataportabilitet (Art. 20 GDPR)</h3>
-      <p>
-        Du har rätt att få dina uppgifter i ett strukturerat, maskinläsbart format.
-        <br/>
-        <strong>Hur:</strong> Exportera via appen (JSON-format)
-      </p>
-      
-      <h3 id="ratt-invandning">7.6 Rätt att invända (Art. 21 GDPR)</h3>
-      <p>
-        Du har rätt att invända mot behandling som baseras på berättigat intresse.
-      </p>
-      
-      <h3 id="ratt-klagomaal">7.7 Rätt att lämna klagomål</h3>
-      <p>
-        Du har rätt att lämna klagomål till Integritetsskyddsmyndigheten (IMY):
-        <br/>
-        <strong>Webbplats:</strong> <a href="https://www.imy.se" target="_blank" rel="noopener noreferrer">www.imy.se</a>
-        <br/>
-        <strong>E-post:</strong> imy@imy.se
-      </p>
-      
-      <h2 id="sakerhet">8. Säkerhet</h2>
-      
-      <p>Vi vidtar tekniska och organisatoriska åtgärder för att skydda dina personuppgifter:</p>
-      <ul>
-        <li><strong>Kryptering:</strong> All data krypteras vid överföring (HTTPS/TLS)</li>
-        <li><strong>Databassäkerhet:</strong> Row Level Security (RLS) i Supabase förhindrar obehörig åtkomst</li>
-        <li><strong>BankID-verifiering:</strong> För identitetsverifiering vid känsliga funktioner</li>
-        <li><strong>Åtkomstkontroll:</strong> Begränsad personal har tillgång till personuppgifter</li>
-        <li><strong>Lösenord:</strong> Hashas med moderna algoritmer (bcrypt/scrypt)</li>
-      </ul>
-      
-      <h2 id="barn">9. Barn</h2>
-      
-      <p>
-        Flocken är inte avsedd för barn under 13 år. Vi samlar inte medvetet in personuppgifter från barn under 13 år. 
-        Om du är förälder och upptäcker att ditt barn har skapat ett konto, kontakta oss omedelbart så raderar vi kontot.
-      </p>
-      
-      <h2 id="andringar">10. Ändringar i integritetspolicyn</h2>
-      
-      <p>
-        Vi kan uppdatera denna integritetspolicy från tid till annan. Väsentliga ändringar kommer att meddelas via:
+        När du använder Flocken delas vissa uppgifter med andra användare:
       </p>
       <ul>
-        <li>Notifikation i appen</li>
-        <li>E-post till din registrerade e-postadress</li>
-        <li>Uppdaterad "Senast uppdaterad"-datum överst på denna sida</li>
+        <li><strong>Offentligt synliga uppgifter:</strong> hundprofiler (namn, bilder, ras, ålder, beskrivning, plats i form av stad/område), ditt användarnamn, din profilbild (om du valt att ladda upp en), eventuell beskrivning av dig som hundvakt eller liknande.</li>
+        <li><strong>När du kontaktar någon:</strong> din kontaktinformation (namn, profilbild) samt de meddelanden du skickar.</li>
+        <li><strong>Favoritmarkeringar:</strong> om du markerar en användare som favorit kan den användaren se det (beroende på appens inställningar).</li>
       </ul>
       
-      <h2 id="kontakt">11. Kontakta oss</h2>
-      
+      <h3 id="delning-leverantörer">5.2 Tjänsteleverantörer och underleverantörer</h3>
       <p>
-        Om du har frågor om denna integritetspolicy eller hur vi behandlar dina personuppgifter, kontakta oss:
+        Vi anlitar externa tjänsteleverantörer för att hjälpa oss driva appen, t.ex.:
       </p>
       <ul>
-        <li><strong>E-post:</strong> support@spitakolus.com</li>
-        <li><strong>Postadress:</strong> Spitakolus AB, Svängrumsgatan 46, 421 71 Västra Frölunda</li>
-        <li><strong>Ärende:</strong> Skriv "Integritet" i ämnesraden</li>
+        <li><strong>Supabase (backend och databas)</strong> – för lagring och hantering av användarkonton och data</li>
+        <li><strong>Google Maps API</strong> – för kartfunktioner och geolokalisering</li>
+        <li><strong>Betalningsleverantörer</strong> (om vi i framtiden erbjuder betalfunktioner direkt i appen)</li>
+        <li><strong>Hosting och infrastruktur</strong> – där appen och databasservrar körs</li>
+      </ul>
+      <p>
+        Dessa leverantörer behandlar personuppgifter endast på våra instruktioner och i enlighet med personuppgiftsbiträdesavtal (DPA) samt gällande dataskyddslagar.
+      </p>
+      
+      <h3 id="delning-myndigheter">5.3 Myndigheter och rättsliga krav</h3>
+      <p>
+        Vi kan komma att lämna ut personuppgifter om det krävs enligt lag, t.ex.:
+      </p>
+      <ul>
+        <li>Vid domstolsbeslut eller myndighetsbeslut</li>
+        <li>Vid misstanke om brott (t.ex. polisutredningar)</li>
+        <li>För att skydda våra rättigheter eller andras säkerhet</li>
       </ul>
       
-      <p className="mt-8 text-sm text-flocken-gray">
-        Denna integritetspolicy är upprättad i enlighet med EU:s dataskyddsförordning (GDPR) och svensk dataskyddslag.
+      <h3 id="delning-internationell">5.4 Internationell överföring</h3>
+      <p>
+        Vissa av våra tjänsteleverantörer (t.ex. molntjänster, Supabase, Google) kan ha servrar eller säkerhetskopior utanför EU/EES. För att säkerställa en hög skyddsnivå för dina personuppgifter vid överföring till tredjeland säkerställer vi att överföringen sker i enlighet med GDPR, exempelvis genom:
+      </p>
+      <ul>
+        <li>beslut om adekvat skyddsnivå av EU-kommissionen, eller</li>
+        <li>standardavtalsklausuler (SCC) och vid behov ytterligare skyddsåtgärder.</li>
+      </ul>
+      <p>
+        Du kan kontakta oss om du vill ha mer information om vilka skyddsåtgärder som används vid internationella överföringar.
+      </p>
+      
+      <h2 id="lagringstid">6. Lagringstid (retention)</h2>
+      <p>
+        Vi sparar dina personuppgifter så länge det är nödvändigt för de ändamål som beskrivs i denna policy eller så länge det krävs enligt lag.
+      </p>
+      <ul>
+        <li><strong>Ditt konto:</strong> lagras så länge du har ett aktivt konto.</li>
+        <li><strong>Raderat konto:</strong> när du säger upp/raderar ditt konto raderar vi eller anonymiserar personuppgifterna inom 30 dagar, såvida vi inte är skyldiga att spara vissa uppgifter längre (t.ex. av rättsliga skäl).</li>
+        <li><strong>Meddelanden:</strong> raderas eller anonymiseras när du tar bort en konversation i appen, eller senast i samband med att kontot raderas (med beaktande av ev. teknisk fördröjning och backup-rutiner).</li>
+        <li><strong>Loggar och tekniska uppgifter:</strong> sparas endast så länge som behövs för säkerhet, felsökning och utveckling.</li>
+      </ul>
+      
+      <h2 id="rättigheter">7. Dina rättigheter enligt GDPR</h2>
+      <p>
+        Som registrerad har du följande rättigheter:
+      </p>
+      
+      <h3>Rätt till tillgång (registerutdrag)</h3>
+      <p>
+        Du har rätt att få ett bekräftelse på om vi behandlar personuppgifter om dig och i så fall få en kopia av uppgifterna.
+      </p>
+      
+      <h3>Rätt till rättelse</h3>
+      <p>
+        Du har rätt att få felaktiga eller ofullständiga uppgifter rättade. Mycket kan du själv uppdatera direkt i appen.
+      </p>
+      
+      <h3>Rätt till radering ("rätten att bli bortglömd")</h3>
+      <p>
+        Du har rätt att begära att vi raderar dina personuppgifter, t.ex. om de inte längre är nödvändiga för ändamålet eller om du återkallar ditt samtycke (om samtycke är den rättsliga grunden).
+      </p>
+      
+      <h3>Rätt till begränsning av behandling</h3>
+      <p>
+        Du kan i vissa fall begära att vi begränsar behandlingen av dina personuppgifter, t.ex. medan vi utreder en invändning.
+      </p>
+      
+      <h3>Rätt till dataportabilitet</h3>
+      <p>
+        För uppgifter som du själv har lämnat till oss med stöd av samtycke eller avtal har du rätt att få dem i ett strukturerat, allmänt använt och maskinläsbart format och, om det är tekniskt möjligt, få dem överförda till en annan personuppgiftsansvarig.
+      </p>
+      
+      <h3>Rätt att göra invändning</h3>
+      <p>
+        Du har rätt att invända mot viss behandling som sker med stöd av berättigat intresse. Vi kommer då att sluta behandla uppgifterna om vi inte kan visa tvingande berättigade skäl som väger tyngre.
+      </p>
+      
+      <h3>Rätt att återkalla samtycke</h3>
+      <p>
+        Om behandlingen grundas på ditt samtycke kan du när som helst återkalla det, t.ex. genom att stänga av platsdelning i enhetens inställningar eller genom att kontakta oss.
+      </p>
+      
+      <h3>Rätt att lämna in klagomål till tillsynsmyndighet</h3>
+      <p>
+        Om du anser att vi behandlar dina personuppgifter i strid med dataskyddsreglerna har du rätt att lämna in klagomål till:
+      </p>
+      <p>
+        <strong>Integritetsskyddsmyndigheten (IMY)</strong><br />
+        Webbplats:{' '}
+        <a href="https://www.imy.se" target="_blank" rel="noopener noreferrer" className="text-flocken-olive hover:underline">
+          imy.se
+        </a>
+      </p>
+      <p>
+        För att utöva dina rättigheter kan du kontakta oss via de kontaktuppgifter som anges i avsnitt 1. Vi kan behöva be dig bekräfta din identitet för att säkerställa att vi lämnar ut uppgifter till rätt person.
+      </p>
+      
+      <h2 id="säkerhet">8. Datasäkerhet</h2>
+      <p>
+        Vi vidtar lämpliga tekniska och organisatoriska säkerhetsåtgärder för att skydda dina personuppgifter, bl.a.:
+      </p>
+      <ul>
+        <li>Krypterad kommunikation via HTTPS</li>
+        <li>Lösenord lagras endast i krypterad/hashed form</li>
+        <li>Row Level Security (RLS) i databasen för att begränsa åtkomst till rätt användare</li>
+        <li>Begränsad åtkomst till personuppgifter för endast behörig personal och system</li>
+        <li>Regelbunden uppdatering av system och säkerhetsrutiner</li>
+      </ul>
+      <p>
+        Trots våra åtgärder kan ingen teknisk lösning vara 100 % säker. Om en personuppgiftsincident skulle inträffa hanterar vi den i enlighet med GDPR och, vid behov, anmäler till IMY samt informerar berörda användare.
+      </p>
+      
+      <h2 id="barn">9. Barns integritet</h2>
+      <p>
+        <strong>Flocken är inte avsedd för barn under 13 år.</strong>
+      </p>
+      <ul>
+        <li>Vi samlar inte medvetet in personuppgifter om barn under 13 år.</li>
+        <li>Om vi får kännedom om att ett konto tillhör någon under 13 år kommer vi att vidta åtgärder för att radera kontot och tillhörande uppgifter.</li>
+        <li>Vi kan ha en åldersverifiering vid registrering och du bekräftar att du är tillräckligt gammal enligt vår policy och tillämplig lag när du skapar konto.</li>
+      </ul>
+      
+      <h2 id="ändringar">10. Ändringar i denna integritetspolicy</h2>
+      <ul>
+        <li>Vi kan ibland uppdatera denna integritetspolicy, t.ex. om vi lägger till nya funktioner eller om lagstiftningen ändras.</li>
+        <li>Vid större ändringar informerar vi dig tydligt i appen eller via e-post.</li>
+        <li>Den senaste versionen finns alltid tillgänglig i appen eller på vår webbplats.</li>
+        <li>Datumet högst upp på sidan visar när policyn senast uppdaterades.</li>
+      </ul>
+      
+      <h2 id="kontakt">11. Kontakt</h2>
+      <p>
+        Har du frågor om hur vi behandlar dina personuppgifter, eller vill du utöva någon av dina rättigheter?
+      </p>
+      <p>
+        Kontakta oss:
+      </p>
+      <p>
+        <strong>Spitakolus AB</strong><br />
+        E-post:{' '}
+        <a href="mailto:support@spitakolus.com" className="text-flocken-olive hover:underline">
+          support@spitakolus.com
+        </a>
       </p>
     </>
   );
 }
-
