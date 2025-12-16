@@ -28,7 +28,7 @@ async function createIPhoneMockup(screenshotPath, outputPath) {
   try {
     console.log(`📱 Bearbetar: ${path.basename(screenshotPath)}`);
 
-    // Läs in screenshot och skala till iPhone-storlek
+    // Läs in screenshot och skala till EXAKT iPhone-storlek (fyller hela skärmen)
     const resizedScreenshot = await sharp(screenshotPath)
       .resize(DEVICE_WIDTH, DEVICE_HEIGHT, {
         fit: 'cover',
@@ -56,7 +56,40 @@ async function createIPhoneMockup(screenshotPath, outputPath) {
       .png()
       .toBuffer();
 
-    // Skapa canvas med plats för skugga
+    // Skapa iPhone-ram SVG (svart kant runt skärmen)
+    const phoneFrameSVG = `
+      <svg width="${MOCKUP_WIDTH}" height="${MOCKUP_HEIGHT}">
+        <defs>
+          <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="20"/>
+            <feOffset dx="0" dy="15" result="offsetblur"/>
+            <feComponentTransfer>
+              <feFuncA type="linear" slope="0.4"/>
+            </feComponentTransfer>
+            <feMerge>
+              <feMergeNode/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        
+        <!-- Skugga -->
+        <rect x="${OFFSET_X}" y="${OFFSET_Y + 5}" width="${DEVICE_WIDTH}" height="${DEVICE_HEIGHT}" 
+              rx="${CORNER_RADIUS}" ry="${CORNER_RADIUS}" 
+              fill="rgba(0,0,0,0.3)" filter="url(#shadow)"/>
+        
+        <!-- Telefonram (svart) -->
+        <rect x="${OFFSET_X}" y="${OFFSET_Y}" width="${DEVICE_WIDTH}" height="${DEVICE_HEIGHT}" 
+              rx="${CORNER_RADIUS}" ry="${CORNER_RADIUS}" 
+              fill="rgb(20,20,20)" stroke="rgb(50,50,50)" stroke-width="2"/>
+        
+        <!-- Dynamic Island -->
+        <ellipse cx="${OFFSET_X + DEVICE_WIDTH/2}" cy="${OFFSET_Y + 30}" 
+                 rx="60" ry="18" fill="rgb(10,10,10)"/>
+      </svg>
+    `;
+
+    // Skapa canvas med transparent bakgrund
     const canvas = await sharp({
       create: {
         width: MOCKUP_WIDTH,
@@ -68,38 +101,16 @@ async function createIPhoneMockup(screenshotPath, outputPath) {
     .png()
     .toBuffer();
 
-    // Skapa mjuk skugga
-    const shadowSVG = `
-      <svg width="${MOCKUP_WIDTH}" height="${MOCKUP_HEIGHT}">
-        <defs>
-          <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="15"/>
-            <feOffset dx="0" dy="10" result="offsetblur"/>
-            <feComponentTransfer>
-              <feFuncA type="linear" slope="0.3"/>
-            </feComponentTransfer>
-            <feMerge>
-              <feMergeNode/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-        <rect x="${OFFSET_X}" y="${OFFSET_Y}" width="${DEVICE_WIDTH}" height="${DEVICE_HEIGHT}" 
-              rx="${CORNER_RADIUS}" ry="${CORNER_RADIUS}" 
-              fill="black" filter="url(#shadow)"/>
-      </svg>
-    `;
-
-    // Kombinera allt
+    // Kombinera allt: ram + screenshot
     await sharp(canvas)
       .composite([
-        // Lägg till skugga
+        // Först: telefonramen (ligger under)
         {
-          input: Buffer.from(shadowSVG),
+          input: Buffer.from(phoneFrameSVG),
           top: 0,
           left: 0
         },
-        // Lägg till screenshot med rundade hörn
+        // Sen: screenshot som fyller skärmen (ligger över ramen, inne i den)
         {
           input: screenshotWithRoundedCorners,
           top: OFFSET_Y,
