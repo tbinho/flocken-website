@@ -66,7 +66,6 @@ export default function HomePage() {
             "Betydligt enklare än Facebook-grupper"
           ]}
           screenshot="/assets/flocken/screenshots/flocken_para_karta-alla-hundar.png"
-          badge="Hälsotester synliga direkt"
           microCta="Se hur Para fungerar"
           reverse={false}
         />
@@ -82,7 +81,6 @@ export default function HomePage() {
             "Annonsera dina egna passningstjänster"
           ]}
           screenshot="/assets/flocken/screenshots/flocken_passa_lista-personer-som-kan-passa.png"
-          badge="Alla hundvakter recenserade"
           microCta="Hitta hundvakter"
           reverse={true}
         />
