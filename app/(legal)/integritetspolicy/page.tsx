@@ -9,11 +9,11 @@ export default function IntegritetspolicyPage() {
       <h1>Integritetspolicy för Flocken</h1>
       
       <p className="lead">
-        <strong>Senast uppdaterad:</strong> 27 november 2025
+        <strong>Senast uppdaterad:</strong> 16 december 2025
       </p>
       
       <p>
-        Denna integritetspolicy beskriver hur vi samlar in, använder, lagrar och skyddar personuppgifter i appen Flocken ("Appen").
+        Denna integritetspolicy gäller för behandling av personuppgifter i samband med användning av Flocken-appen samt tillhörande tjänster. Policyn gäller även när personuppgifter samlas in via vår webbplats i den utsträckning de avser appen eller användarkonton i Flocken.
       </p>
       
       <p>
@@ -40,15 +40,27 @@ export default function IntegritetspolicyPage() {
       </p>
       
       <h3 id="uppgifter-kontoinformation">2.1 Kontoinformation</h3>
+      <p>
+        För att använda Flocken krävs ett användarkonto. Appen är gratis att ladda ner och det finns en kostnadsfri kontonivå utan tidsbegränsning.
+      </p>
+      <p>
+        Vid registrering samlar vi in e-postadress, förnamn och efternamn. E-postadressen verifieras i samband med kontoskapande.
+      </p>
       <ul>
-        <li>E-postadress</li>
+        <li>E-postadress (obligatorisk)</li>
+        <li>Förnamn och efternamn (obligatoriska)</li>
         <li>Lösenord (lagras krypterat, vi kan aldrig se ditt lösenord i klartext)</li>
-        <li>Namn (t.ex. fullständigt namn, förnamn eller användarnamn)</li>
         <li>Telefonnummer (valfritt)</li>
         <li>Profilbild (valfritt)</li>
       </ul>
       
       <h3 id="uppgifter-hundinfo">2.2 Hundinformation</h3>
+      <p>
+        Uppgifter om hundar (såsom namn, ras, kön, ålder, bilder samt eventuella hälsodata eller tester inför parning) lämnas av användaren själv.
+      </p>
+      <p>
+        <strong>Flocken verifierar, granskar eller kontrollerar inte dessa uppgifter och ansvarar inte för deras korrekthet eller fullständighet. Det är användarens ansvar att lämna sanningsenlig information.</strong>
+      </p>
       <ul>
         <li>Hundnamn</li>
         <li>Hundras (inkl. blandras)</li>
@@ -66,14 +78,24 @@ export default function IntegritetspolicyPage() {
         <strong>Obs:</strong> Du bör aldrig lägga in känsliga uppgifter om varken dig själv eller andra personer (t.ex. sjukdomsdiagnoser, religiös övertygelse, politiska åsikter).
       </p>
       
-      <h3 id="uppgifter-plats">2.3 Platsinformation</h3>
-      <ul>
-        <li>GPS-position (för att visa hundar och platser i närheten)</li>
-        <li>Område/adress där hunden typiskt går på promenad</li>
-        <li>Favoritplatser, t.ex. hundrastgårdar och parker</li>
-      </ul>
+      <h3 id="uppgifter-plats">2.3 Platsdata och GPS</h3>
       <p>
-        Du kan i din enhet stänga av platsdelning (GPS) när som helst. Viss funktionalitet i appen kan då begränsas.
+        Flocken samlar endast in användarens exakta platsdata (GPS) i samband med att användaren aktivt startar en promenad i funktionen Rasta.
+      </p>
+      <p>
+        Platsdata registreras endast under den tid promenaden pågår och upphör automatiskt när promenaden avslutas. Ingen platsdata samlas in i bakgrunden eller i andra delar av appen.
+      </p>
+      <p>
+        Platsdata delas inte med andra användare i realtid. Efter avslutad promenad kan användaren själv välja om promenaden ska sparas privat eller göras synlig för andra användare.
+      </p>
+      <p>
+        Användning av appen i övrigt kräver inte tillgång till platsdata. Funktionen Rasta är dock inte tillgänglig utan att platsåtkomst tillåts.
+      </p>
+      <p>
+        Sparade promenader lagras tills användaren själv väljer att ta bort dem. Vid radering av en promenad tas detaljerad platsdata bort och endast sammanställd information såsom total sträcka och poäng kan sparas.
+      </p>
+      <p>
+        <strong>Rättslig grund:</strong> Behandling av platsdata sker för att fullgöra användarens uttryckliga begäran att registrera en promenad och baseras på avtalet mellan användaren och Flocken.
       </p>
       
       <h3 id="uppgifter-funktion">2.4 Funktionsspecifik data</h3>
@@ -81,10 +103,20 @@ export default function IntegritetspolicyPage() {
         <li><strong>Hundvakt:</strong> tillgänglighet, priser, erfarenhet/beskrivning</li>
         <li><strong>Parning:</strong> information om att hunden är tillgänglig för parning, övergripande parningshistorik (i den mån du själv anger den)</li>
         <li><strong>Hundrastgårdar:</strong> platser du markerar som favorit eller rekommenderar</li>
-        <li><strong>Meddelanden:</strong> chattkonversationer mellan användare via Flocken</li>
       </ul>
       
-      <h3 id="uppgifter-interaktion">2.5 Användarinteraktioner</h3>
+      <h3 id="uppgifter-kommunikation">2.5 Kommunikation mellan användare</h3>
+      <p>
+        Flocken erbjuder möjlighet till direkt kommunikation mellan användare via privat chatt. Meddelanden är endast synliga för de konton som deltar i konversationen.
+      </p>
+      <p>
+        Chattmeddelanden lagras på våra servrar och raderas när användaren själv tar bort dem eller när ett konto raderas. Meddelanden raderas inte automatiskt efter en viss tid.
+      </p>
+      <p>
+        <strong>Flocken tar inte del av innehållet i chattmeddelanden.</strong> Teknisk åtkomst kan dock förekomma i undantagsfall, exempelvis vid felsökning, säkerhetsincidenter eller när det krävs enligt lag eller myndighetsbeslut.
+      </p>
+      
+      <h3 id="uppgifter-interaktion">2.6 Användarinteraktioner</h3>
       <ul>
         <li>Favoriter (hundar/användare du markerar som favorit)</li>
         <li>Skickade och mottagna meddelanden</li>
@@ -136,16 +168,6 @@ export default function IntegritetspolicyPage() {
         <strong>Rättslig grund:</strong> Avtal (artikel 6.1 b) – för att möjliggöra de funktioner du valt att använda.
       </p>
       
-      <h3 id="ändamål-plats">4.3 För att visa relevant platsinformation och kartor</h3>
-      <p><strong>Exempel på behandlingar:</strong></p>
-      <ul>
-        <li>Visa hundar och hundägare i närheten</li>
-        <li>Visa och spara favoritplatser, t.ex. hundrastgårdar</li>
-        <li>Använda Google Maps API för kartfunktioner</li>
-      </ul>
-      <p>
-        <strong>Rättslig grund:</strong> Avtal (artikel 6.1 b) – för att kunna erbjuda platsbaserade funktioner i appen. Samtycke (artikel 6.1 a) – i de fall din enhet kräver särskilt godkännande för platsdelning (du kan när som helst återkalla ditt samtycke genom att stänga av platsåtkomst).
-      </p>
       
       <h3 id="ändamål-support">4.4 För kommunikation och support</h3>
       <p><strong>Exempel på behandlingar:</strong></p>
@@ -154,6 +176,9 @@ export default function IntegritetspolicyPage() {
         <li>Svara på supportärenden</li>
         <li>Kontakta dig vid misstanke om missbruk eller brott mot villkor</li>
       </ul>
+      <p>
+        Vid kontakt med support via e-post behandlas personuppgifter för att hantera ärendet. Supportärenden sparas i upp till 365 dagar, eller längre om det krävs för att hantera pågående ärenden eller rättsliga krav.
+      </p>
       <p>
         <strong>Rättslig grund:</strong> Avtal (artikel 6.1 b) – nödvändigt för att kunna hjälpa dig som användare. Berättigat intresse (artikel 6.1 f) – vårt intresse av att administrera appen och ge god kundservice.
       </p>
@@ -164,6 +189,12 @@ export default function IntegritetspolicyPage() {
         <li>Analys av hur appen används (t.ex. vilka funktioner som används mest)</li>
         <li>Felsökning, kraschloggar och prestandaoptimering</li>
       </ul>
+      <p>
+        För analys, statistik och förbättring av tjänsten använder vi analysverktyg såsom Google Analytics 4 och Meta (Facebook). Dessa verktyg kan behandla teknisk information såsom IP-adress, enhetsinformation, operativsystem och användarbeteende i appen.
+      </p>
+      <p>
+        Uppgifterna används för att förstå hur tjänsten används, förbättra funktionalitet och säkerställa stabil drift.
+      </p>
       <p>
         <strong>Rättslig grund:</strong> Berättigat intresse (artikel 6.1 f) – vårt berättigade intresse av att förbättra tjänsten, öka säkerheten och förstå användarbeteenden.
       </p>
@@ -176,6 +207,14 @@ export default function IntegritetspolicyPage() {
       </ul>
       <p>
         <strong>Rättslig grund:</strong> Rättslig förpliktelse (artikel 6.1 c) – när vi är skyldiga enligt lag. Berättigat intresse (artikel 6.1 f) – för att bevaka och försvara våra rättsliga intressen.
+      </p>
+      
+      <h3 id="ändamål-profilering">4.7 Profilering och rekommendationer</h3>
+      <p>
+        Eventuella rekommendationer i appen baseras på användarens egna val, filter och inställningar (t.ex. ras, storlek eller geografisk närhet).
+      </p>
+      <p>
+        Rekommendationerna utgör endast förslag och innebär inte automatiserat beslutsfattande med rättsliga eller liknande betydande konsekvenser för användaren.
       </p>
       
       <h2 id="delning">5. Delning av personuppgifter</h2>
@@ -198,11 +237,12 @@ export default function IntegritetspolicyPage() {
       
       <h3 id="delning-leverantörer">5.2 Tjänsteleverantörer och underleverantörer</h3>
       <p>
-        Vi anlitar externa tjänsteleverantörer för att hjälpa oss driva appen, t.ex.:
+        Personuppgifter lagras och behandlas med hjälp av tredjepartsleverantörer. Vi anlitar externa tjänsteleverantörer för att hjälpa oss driva appen, t.ex.:
       </p>
       <ul>
-        <li><strong>Supabase (backend och databas)</strong> – för lagring och hantering av användarkonton och data</li>
+        <li><strong>Supabase (backend och databas)</strong> – för lagring och hantering av användarkonton och data. Databastjänster tillhandahålls via Supabase, vars servrar är lokaliserade inom EU (Irland).</li>
         <li><strong>Google Maps API</strong> – för kartfunktioner och geolokalisering</li>
+        <li><strong>Google Analytics 4 och Meta (Facebook)</strong> – för analys och spårning</li>
         <li><strong>Betalningsleverantörer</strong> (om vi i framtiden erbjuder betalfunktioner direkt i appen)</li>
         <li><strong>Hosting och infrastruktur</strong> – där appen och databasservrar körs</li>
       </ul>
@@ -222,7 +262,10 @@ export default function IntegritetspolicyPage() {
       
       <h3 id="delning-internationell">5.4 Internationell överföring</h3>
       <p>
-        Vissa av våra tjänsteleverantörer (t.ex. molntjänster, Supabase, Google) kan ha servrar eller säkerhetskopior utanför EU/EES. För att säkerställa en hög skyddsnivå för dina personuppgifter vid överföring till tredjeland säkerställer vi att överföringen sker i enlighet med GDPR, exempelvis genom:
+        Analys- och spårningstjänster kan innebära att personuppgifter behandlas av leverantörer utanför EU/EES. Sådan överföring sker i enlighet med gällande dataskyddslagstiftning och med lämpliga skyddsåtgärder, såsom EU:s standardavtalsklausuler.
+      </p>
+      <p>
+        Vissa av våra tjänsteleverantörer (t.ex. molntjänster, Google) kan ha servrar eller säkerhetskopior utanför EU/EES. För att säkerställa en hög skyddsnivå för dina personuppgifter vid överföring till tredjeland säkerställer vi att överföringen sker i enlighet med GDPR, exempelvis genom:
       </p>
       <ul>
         <li>beslut om adekvat skyddsnivå av EU-kommissionen, eller</li>
@@ -238,7 +281,9 @@ export default function IntegritetspolicyPage() {
       </p>
       <ul>
         <li><strong>Ditt konto:</strong> lagras så länge du har ett aktivt konto.</li>
-        <li><strong>Raderat konto:</strong> när du säger upp/raderar ditt konto raderar vi eller anonymiserar personuppgifterna inom 30 dagar, såvida vi inte är skyldiga att spara vissa uppgifter längre (t.ex. av rättsliga skäl).</li>
+        <li><strong>Raderat konto:</strong> Vid begäran om radering av konto tas personuppgifter bort permanent inom 30 dagar.</li>
+        <li><strong>Säkerhetskopior (backups):</strong> kan sparas i upp till 7 dagar innan de raderas automatiskt.</li>
+        <li><strong>Inaktivitet:</strong> Om ett konto är inaktivt i 365 dagar kontaktas användaren. Om ingen åtgärd vidtas inom 30 dagar efter sådan kontakt raderas kontot permanent.</li>
         <li><strong>Meddelanden:</strong> raderas eller anonymiseras när du tar bort en konversation i appen, eller senast i samband med att kontot raderas (med beaktande av ev. teknisk fördröjning och backup-rutiner).</li>
         <li><strong>Loggar och tekniska uppgifter:</strong> sparas endast så länge som behövs för säkerhet, felsökning och utveckling.</li>
       </ul>

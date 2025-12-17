@@ -87,3 +87,9 @@ git push -u origin main
 - Production: https://flocken.info
 - GitHub: https://github.com/tbinho/flocken-website
 
+## 📋 Changelog
+
+Se detaljerade ändringar i:
+- [CHANGELOG_20251216.md](./CHANGELOG_20251216.md) - Integritetspolicy uppdateringar (16 dec 2025)
+- [CHANGELOG_20241204.md](./CHANGELOG_20241204.md) - Designförbättringar och bildhantering (4 dec 2024)
+
