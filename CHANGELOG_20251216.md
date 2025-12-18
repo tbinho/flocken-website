@@ -96,3 +96,4 @@ Alla ändringar från ändringsdokumentet har implementerats:
 - ✅ Redo för App Store och Google Play
 
 **Inga breaking changes** - endast förtydliganden och kompletteringar av befintlig policy.
+

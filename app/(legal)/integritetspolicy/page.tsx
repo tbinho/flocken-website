@@ -281,14 +281,22 @@ export default function IntegritetspolicyPage() {
       </p>
       <ul>
         <li><strong>Ditt konto:</strong> lagras så länge du har ett aktivt konto.</li>
-        <li><strong>Raderat konto:</strong> Vid begäran om radering av konto tas personuppgifter bort permanent inom 30 dagar.</li>
+        <li><strong>Raderat konto:</strong> Du kan när som helst radera ditt konto direkt i appen. När kontot raderas tas personuppgifter, profilinformation, hunduppgifter, bilder och chattmeddelanden bort från våra system inom rimlig tid, om inget annat krävs enligt lag.</li>
         <li><strong>Säkerhetskopior (backups):</strong> kan sparas i upp till 7 dagar innan de raderas automatiskt.</li>
         <li><strong>Inaktivitet:</strong> Om ett konto är inaktivt i 365 dagar kontaktas användaren. Om ingen åtgärd vidtas inom 30 dagar efter sådan kontakt raderas kontot permanent.</li>
         <li><strong>Meddelanden:</strong> raderas eller anonymiseras när du tar bort en konversation i appen, eller senast i samband med att kontot raderas (med beaktande av ev. teknisk fördröjning och backup-rutiner).</li>
         <li><strong>Loggar och tekniska uppgifter:</strong> sparas endast så länge som behövs för säkerhet, felsökning och utveckling.</li>
       </ul>
       
-      <h2 id="rättigheter">7. Dina rättigheter enligt GDPR</h2>
+      <h2 id="rättigheter">7. Dina rättigheter</h2>
+      <p>
+        Som användare har du rätt att begära tillgång till de personuppgifter vi behandlar om dig, begära rättelse av felaktiga uppgifter eller invända mot viss behandling.
+      </p>
+      <p>
+        För frågor eller för att utöva dina rättigheter kan du kontakta oss via e-post på support@spitakolus.com.
+      </p>
+      
+      <h3>Dina rättigheter enligt GDPR</h3>
       <p>
         Som registrerad har du följande rättigheter:
       </p>
@@ -300,12 +308,15 @@ export default function IntegritetspolicyPage() {
       
       <h3>Rätt till rättelse</h3>
       <p>
-        Du har rätt att få felaktiga eller ofullständiga uppgifter rättade. Mycket kan du själv uppdatera direkt i appen.
+        Du har rätt att få felaktiga eller ofullständiga uppgifter rättade. Du kan själv redigera dina profiluppgifter och information om din hund direkt i appen. Bilder som du laddat upp kan tas bort av dig när som helst via appen.
       </p>
       
       <h3>Rätt till radering ("rätten att bli bortglömd")</h3>
       <p>
-        Du har rätt att begära att vi raderar dina personuppgifter, t.ex. om de inte längre är nödvändiga för ändamålet eller om du återkallar ditt samtycke (om samtycke är den rättsliga grunden).
+        Du kan när som helst radera ditt konto direkt i appen. När kontot raderas tas personuppgifter, profilinformation, hunduppgifter, bilder och chattmeddelanden bort från våra system inom rimlig tid, om inget annat krävs enligt lag.
+      </p>
+      <p>
+        Du har även rätt att begära radering genom att kontakta oss via e-post, t.ex. om du inte har tillgång till appen.
       </p>
       
       <h3>Rätt till begränsning av behandling</h3>
@@ -389,6 +400,14 @@ export default function IntegritetspolicyPage() {
         <a href="mailto:support@spitakolus.com" className="text-flocken-olive hover:underline">
           support@spitakolus.com
         </a>
+      </p>
+      
+      <h2 id="privacy-choices">12. Hantera dina integritetsval</h2>
+      <p>
+        Mer information om hur du kan hantera, ändra eller radera dina uppgifter finns på vår sida för{' '}
+        <a href="/privacy-choices" className="text-flocken-olive hover:underline">
+          användarens integritetsval
+        </a>.
       </p>
     </>
   );

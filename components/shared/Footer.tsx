@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -54,6 +56,18 @@ export function Footer({ variant = 'marketing' }: FooterProps) {
                 <li><Link href="/integritetspolicy" className="text-flocken-gray hover:text-flocken-olive transition-colors">Integritetspolicy</Link></li>
                 <li><Link href="/anvendarvillkor" className="text-flocken-gray hover:text-flocken-olive transition-colors">Användarvillkor</Link></li>
                 <li><Link href="/support" className="text-flocken-gray hover:text-flocken-olive transition-colors">Kontakt</Link></li>
+                <li>
+                  <button 
+                    onClick={() => {
+                      if (typeof window !== 'undefined' && window.showCookieSettings) {
+                        window.showCookieSettings();
+                      }
+                    }}
+                    className="text-flocken-gray hover:text-flocken-olive transition-colors text-left"
+                  >
+                    Cookie-inställningar
+                  </button>
+                </li>
               </ul>
             </div>
           </div>
@@ -64,6 +78,17 @@ export function Footer({ variant = 'marketing' }: FooterProps) {
               <Link href="/integritetspolicy" className="hover:text-flocken-olive transition-colors">Integritetspolicy</Link>
               {' · '}
               <Link href="/anvendarvillkor" className="hover:text-flocken-olive transition-colors">Användarvillkor</Link>
+              {' · '}
+              <button 
+                onClick={() => {
+                  if (typeof window !== 'undefined' && window.showCookieSettings) {
+                    window.showCookieSettings();
+                  }
+                }}
+                className="hover:text-flocken-olive transition-colors"
+              >
+                Cookie-inställningar
+              </button>
             </p>
           </div>
         )}
