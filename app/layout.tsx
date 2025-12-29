@@ -78,6 +78,18 @@ export default function RootLayout({
         
         {/* Cookie Banner - Modal design */}
         <script defer src="/scripts/cookie-banner-custom.js"></script>
+        
+        {/* Google tag (gtag.js) - Google Ads */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17821309500"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17821309500');
+            `,
+          }}
+        />
       </head>
       <body className={inter.className} suppressHydrationWarning={true}>
         {children}
