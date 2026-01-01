@@ -54,8 +54,46 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="sv">
-      <body className={inter.className}>{children}</body>
+    <html lang="sv" suppressHydrationWarning>
+      <head>
+        {/* Initialize dataLayer for consent management (if GTM is added later) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              
+              // Default consent state - denied until user accepts
+              window.dataLayer.push({
+                'event': 'consent_default',
+                'analytics_storage': 'denied',
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'functionality_storage': 'granted',
+                'security_storage': 'granted'
+              });
+            `,
+          }}
+        />
+        
+        {/* Cookie Banner - Modal design */}
+        <script defer src="/scripts/cookie-banner-custom.js"></script>
+        
+        {/* Google tag (gtag.js) - Google Ads */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17821309500"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17821309500');
+            `,
+          }}
+        />
+      </head>
+      <body className={inter.className} suppressHydrationWarning={true}>
+        {children}
+      </body>
     </html>
   );
 }

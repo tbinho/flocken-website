@@ -36,14 +36,19 @@ flocken-website/
 │   ├── (legal)/            # Legal pages layout
 │   │   ├── layout.tsx      # Legal header + footer + sidebar
 │   │   ├── integritetspolicy/
-│   │   └── anvendarvillkor/
-│   ├── layout.tsx          # Root layout
+│   │   ├── anvendarvillkor/
+│   │   ├── privacy-choices/  # Användarens integritetsval (App Store-krav)
+│   │   └── support/
+│   ├── layout.tsx          # Root layout (inkl. cookie banner)
 │   └── globals.css         # Global styles
 ├── components/
-│   ├── shared/             # Shared components
+│   ├── shared/             # Shared components (Header, Footer)
 │   ├── marketing/          # Marketing blocks
 │   └── legal/              # Legal components
-├── public/assets/flocken/  # Assets (logos, screenshots, images)
+├── public/
+│   ├── assets/flocken/     # Assets (logos, screenshots, images)
+│   └── scripts/
+│       └── cookie-banner-custom.js  # GDPR cookie consent
 └── tailwind.config.ts      # Designsystem
 ```
 
@@ -94,4 +99,10 @@ git push -u origin main
 
 - Production: https://flocken.info
 - GitHub: https://github.com/tbinho/flocken-website
+
+## 📋 Changelog
+
+Se detaljerade ändringar i:
+- [CHANGELOG_20251216.md](./CHANGELOG_20251216.md) - Integritetspolicy uppdateringar (16 dec 2025)
+- [CHANGELOG_20241204.md](./CHANGELOG_20241204.md) - Designförbättringar och bildhantering (4 dec 2024)
 
