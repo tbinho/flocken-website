@@ -1,5 +1,14 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+
+// Extend Window interface to include cookie banner function
+declare global {
+  interface Window {
+    showCookieSettings?: () => void;
+  }
+}
 
 interface FooterProps {
   variant?: 'marketing' | 'legal';
@@ -52,8 +61,20 @@ export function Footer({ variant = 'marketing' }: FooterProps) {
               <h4 className="font-semibold text-flocken-brown mb-4">Juridiskt</h4>
               <ul className="space-y-2 text-sm">
                 <li><Link href="/integritetspolicy" className="text-flocken-gray hover:text-flocken-olive transition-colors">Integritetspolicy</Link></li>
-                <li><Link href="/anvendarvillkor" className="text-flocken-gray hover:text-flocken-olive transition-colors">Användarvillkor</Link></li>
-                <li><a href="mailto:support@spitakolus.com" className="text-flocken-gray hover:text-flocken-olive transition-colors">Kontakt</a></li>
+                <li><Link href="/anvandarvillkor" className="text-flocken-gray hover:text-flocken-olive transition-colors">Användarvillkor</Link></li>
+                <li><Link href="/support" className="text-flocken-gray hover:text-flocken-olive transition-colors">Kontakt</Link></li>
+                <li>
+                  <button 
+                    onClick={() => {
+                      if (typeof window !== 'undefined' && window.showCookieSettings) {
+                        window.showCookieSettings();
+                      }
+                    }}
+                    className="text-flocken-gray hover:text-flocken-olive transition-colors text-left"
+                  >
+                    Cookie-inställningar
+                  </button>
+                </li>
               </ul>
             </div>
           </div>
@@ -63,7 +84,18 @@ export function Footer({ variant = 'marketing' }: FooterProps) {
             <p className="text-sm text-flocken-gray">
               <Link href="/integritetspolicy" className="hover:text-flocken-olive transition-colors">Integritetspolicy</Link>
               {' · '}
-              <Link href="/anvendarvillkor" className="hover:text-flocken-olive transition-colors">Användarvillkor</Link>
+              <Link href="/anvandarvillkor" className="hover:text-flocken-olive transition-colors">Användarvillkor</Link>
+              {' · '}
+              <button 
+                onClick={() => {
+                  if (typeof window !== 'undefined' && window.showCookieSettings) {
+                    window.showCookieSettings();
+                  }
+                }}
+                className="hover:text-flocken-olive transition-colors"
+              >
+                Cookie-inställningar
+              </button>
             </p>
           </div>
         )}
