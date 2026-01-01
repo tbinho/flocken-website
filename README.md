@@ -57,6 +57,14 @@ Flockens färgschema implementerat i Tailwind:
 
 ## 📦 Deployment
 
+### Git & specialtecken i sökvägar
+- Använd alltid `$PSScriptRoot` i PowerShell-skript för att undvika problem med `ö` i sökvägar.
+- Se `GIT_COMMANDS.md` och `README_GIT.md` för full guide.
+- Exempel:
+  - `cd $PSScriptRoot`
+  - `git -C $PSScriptRoot status`
+  - `.\commit-changes.ps1` (ligger i repo-roten och använder `$PSScriptRoot`)
+
 ### GitHub
 
 ```bash
