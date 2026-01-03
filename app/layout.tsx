@@ -56,6 +56,9 @@ export default function RootLayout({
   return (
     <html lang="sv" suppressHydrationWarning>
       <head>
+        {/* Facebook Domain Verification */}
+        <meta name="facebook-domain-verification" content="jt1vlxalalidu3tkkaoufy8kv91tta" />
+        
         {/* Initialize dataLayer for consent management (if GTM is added later) */}
         <script
           dangerouslySetInnerHTML={{
