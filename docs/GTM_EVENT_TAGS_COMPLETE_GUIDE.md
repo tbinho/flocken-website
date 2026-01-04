@@ -88,6 +88,7 @@ Efter att du valt "Google Analytics: GA4 Event", kommer du se:
    - **Variable:** Välj **"Page Hostname"** (built-in variable)
    - **Operator:** Välj **"equals"**
    - **Value:** Ange `flocken.info`
+   - **⚠️ VIKTIGT:** Kontrollera att det står `flocken.info` (med "f" i början), INTE `locken.info`!
    - (Detta säkerställer att taggen bara triggas på Flocken-webbplatsen)
 
 6. **Spara Trigger:**
