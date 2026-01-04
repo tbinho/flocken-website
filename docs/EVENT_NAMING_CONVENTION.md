@@ -22,7 +22,7 @@
 | Event Name | När | Value | Används i |
 |------------|-----|-------|-----------|
 | `sign_up` | Användare registrerar sig | 100-200 SEK | Nästa Hem, Flocken |
-| `app_install` | App laddas ner | 50-150 SEK | Flocken (framtida: andra appar) |
+| `app_install` | App laddas ner | 50-150 SEK | Flocken, framtida appar (standard för alla brands med appar) |
 
 **Exempel:**
 ```javascript
@@ -31,6 +31,13 @@ window.dataLayer.push({ event: 'sign_up', signup_method: 'email' });
 
 // Flocken
 window.dataLayer.push({ event: 'sign_up', signup_method: 'email' });
+
+// App install (alla brands med appar)
+window.dataLayer.push({ 
+  event: 'app_install', 
+  platform: 'android', 
+  source: 'website' 
+});
 ```
 
 ---

@@ -10,10 +10,10 @@
 ### **Core Business Events**
 
 #### **1. `app_install`** ✅
-**Flocken Funktion:** App-nedladdning  
+**Standard Event:** App-nedladdning (för alla brands med appar)  
 **När:** Användare klickar på Google Play/App Store länk  
 **Value:** 50-150 SEK (enligt dokumentation)  
-**Status:** ✅ Implementerad i frontend
+**Status:** ✅ Implementerad i frontend (Flocken)
 
 #### **2. `sign_up`** ✅
 **Flocken Funktion:** Användarregistrering  
