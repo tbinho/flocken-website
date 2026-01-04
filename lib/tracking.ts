@@ -6,6 +6,8 @@
 /**
  * Track app installation click
  * Använd när användare klickar på Google Play eller App Store länkar
+ * 
+ * Standard: app_install (följer Spitakolus event naming convention)
  */
 export function trackAppInstall(platform: 'android' | 'ios', source?: string) {
   if (typeof window === 'undefined' || !window.dataLayer) {
@@ -17,7 +19,7 @@ export function trackAppInstall(platform: 'android' | 'ios', source?: string) {
     event: 'app_install',
     platform: platform,
     source: source || 'website',
-    value: 50, // Estimated value in SEK
+    value: 50, // Estimated value in SEK (50-150 SEK range per documentation)
     currency: 'SEK'
   });
 }
@@ -25,6 +27,8 @@ export function trackAppInstall(platform: 'android' | 'ios', source?: string) {
 /**
  * Track sign up event
  * Använd när användare registrerar sig
+ * 
+ * Standard: sign_up (samma som Nästa Hem för konsistent cross-brand analysis)
  */
 export function trackSignUp(method: 'email' | 'google' | 'apple', userId?: string) {
   if (typeof window === 'undefined' || !window.dataLayer) {
@@ -36,7 +40,7 @@ export function trackSignUp(method: 'email' | 'google' | 'apple', userId?: strin
     event: 'sign_up',
     signup_method: method,
     user_id: userId,
-    value: 100, // Estimated value in SEK
+    value: 100, // Estimated value in SEK (100-200 SEK range per standard)
     currency: 'SEK'
   });
 }
@@ -91,8 +95,11 @@ export function trackSubscriptionStart(transactionId: string, value: number) {
 /**
  * Track listing created
  * Använd när användare skapar en hundannons
+ * 
+ * Standard: listing_created (samma som Nästa Hem)
+ * listing_type: 'dog' för Flocken, 'apartment' för Nästa Hem
  */
-export function trackListingCreated(listingId: string, listingType?: string) {
+export function trackListingCreated(listingId: string, listingType: string = 'dog') {
   if (typeof window === 'undefined' || !window.dataLayer) {
     console.warn('dataLayer not available');
     return;
@@ -101,8 +108,8 @@ export function trackListingCreated(listingId: string, listingType?: string) {
   window.dataLayer.push({
     event: 'listing_created',
     listing_id: listingId,
-    listing_type: listingType || 'dog',
-    value: 0,
+    listing_type: listingType, // 'dog' för Flocken, 'apartment' för Nästa Hem
+    value: 0, // Gratis funktion
     currency: 'SEK'
   });
 }
@@ -156,6 +163,8 @@ export function trackBookingConfirmed(
 /**
  * Track message sent
  * Använd när användare skickar meddelande
+ * 
+ * Standard: message_sent (samma som Nästa Hem för konsistent tracking)
  */
 export function trackMessageSent(messageType: 'text' | 'image' | 'video', conversationId?: string) {
   if (typeof window === 'undefined' || !window.dataLayer) {
@@ -166,7 +175,9 @@ export function trackMessageSent(messageType: 'text' | 'image' | 'video', conver
   window.dataLayer.push({
     event: 'message_sent',
     message_type: messageType,
-    conversation_id: conversationId
+    conversation_id: conversationId,
+    value: 0, // Engagement metric
+    currency: 'SEK'
   });
 }
 
