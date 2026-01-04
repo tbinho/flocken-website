@@ -170,3 +170,41 @@ export function trackMessageSent(messageType: 'text' | 'image' | 'video', conver
   });
 }
 
+/**
+ * Track walk/route saved (Rasta funktion)
+ * Använd när användare sparar en promenad/runda
+ */
+export function trackWalkSaved(routeId: string, distanceKm?: number) {
+  if (typeof window === 'undefined' || !window.dataLayer) {
+    console.warn('dataLayer not available');
+    return;
+  }
+
+  window.dataLayer.push({
+    event: 'walk_saved',
+    route_id: routeId,
+    distance_km: distanceKm,
+    value: 0,
+    currency: 'SEK'
+  });
+}
+
+/**
+ * Track place visited/saved (Besöka funktion)
+ * Använd när användare besöker eller sparar en hundvänlig plats
+ */
+export function trackPlaceVisited(placeId: string, placeType?: string) {
+  if (typeof window === 'undefined' || !window.dataLayer) {
+    console.warn('dataLayer not available');
+    return;
+  }
+
+  window.dataLayer.push({
+    event: 'place_visited',
+    place_id: placeId,
+    place_type: placeType || 'dog_friendly',
+    value: 0,
+    currency: 'SEK'
+  });
+}
+
