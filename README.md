@@ -129,6 +129,25 @@ git remote -v
 - GitHub (Vercel-kopplad): https://github.com/RaquelSandblad/flocken-website
 - GitHub (backup): https://github.com/tbinho/flocken-website
 
+## 📊 Tracking & Analytics
+
+Flocken har komplett tracking-infrastruktur implementerad:
+
+- ✅ **Google Analytics 4 (GA4)** - Live i produktion (G-7B1SVKL89Q)
+- ✅ **Google Tag Manager (GTM)** - Shared container med hostname routing
+- ✅ **Meta Pixel** - Implementerad med cookie consent
+- ⏳ **Server-side tracking** - Planerad
+- ⏳ **App tracking (iOS/Android)** - Planerad
+- ⏳ **BigQuery export** - Planerad
+
+**Dokumentation:**
+- [Komplett Tracking Setup](./docs/TRACKING_SETUP_COMPLETE.md) ⭐ Start här
+- [GA4 Setup Status](./docs/GA4_SETUP_STATUS.md)
+- [GTM Setup Instructions](./docs/GTM_SETUP_INSTRUCTIONS.md)
+- [Framtida Implementation Plans](./docs/README.md)
+
+---
+
 ## 📋 Changelog
 
 Se detaljerade ändringar i:
