@@ -1,7 +1,151 @@
 /**
  * Tracking utilities för Flocken
  * Skickar events till GTM dataLayer för GA4 tracking
+ * och Meta Conversions API (CAPI) för server-side tracking
  */
+
+// ============================================
+// META PIXEL + CAPI HELPERS
+// ============================================
+
+declare global {
+  interface Window {
+    dataLayer: Record<string, unknown>[];
+    fbq?: (...args: unknown[]) => void;
+  }
+}
+
+/**
+ * Get Facebook browser cookies for better attribution
+ */
+function getFacebookCookies(): { fbp?: string; fbc?: string } {
+  if (typeof document === 'undefined') return {};
+  
+  const cookies = document.cookie.split(';').reduce((acc, cookie) => {
+    const [key, value] = cookie.trim().split('=');
+    acc[key] = value;
+    return acc;
+  }, {} as Record<string, string>);
+  
+  return {
+    fbp: cookies['_fbp'],
+    fbc: cookies['_fbc'],
+  };
+}
+
+/**
+ * Generate unique event ID for deduplication between Pixel and CAPI
+ */
+function generateEventId(): string {
+  return `${Date.now()}_${Math.random().toString(36).substring(2, 15)}`;
+}
+
+/**
+ * Send event to Meta Conversions API (server-side)
+ */
+async function sendToCAPI(eventData: {
+  event_name: string;
+  event_id?: string;
+  email?: string;
+  phone?: string;
+  custom_data?: Record<string, unknown>;
+}): Promise<void> {
+  try {
+    const { fbp, fbc } = getFacebookCookies();
+    
+    await fetch('/api/meta/capi', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...eventData,
+        fbp,
+        fbc,
+        event_source_url: window.location.href,
+      }),
+    });
+  } catch (error) {
+    console.warn('CAPI request failed:', error);
+  }
+}
+
+/**
+ * Track Lead event (email signup, waitlist, etc.)
+ * Sends to both Meta Pixel (client) and CAPI (server) for redundancy
+ */
+export async function trackLead(data: {
+  email?: string;
+  source?: string;
+  content_name?: string;
+}): Promise<void> {
+  const eventId = generateEventId();
+  
+  // Client-side: Meta Pixel
+  if (typeof window !== 'undefined' && window.fbq) {
+    window.fbq('track', 'Lead', {
+      content_name: data.content_name || 'Waitlist Signup',
+      content_category: data.source || 'website',
+    }, { eventID: eventId });
+  }
+  
+  // Server-side: CAPI
+  await sendToCAPI({
+    event_name: 'Lead',
+    event_id: eventId,
+    email: data.email,
+    custom_data: {
+      content_name: data.content_name || 'Waitlist Signup',
+      content_category: data.source || 'website',
+    },
+  });
+  
+  // Also push to dataLayer for GA4
+  if (typeof window !== 'undefined' && window.dataLayer) {
+    window.dataLayer.push({
+      event: 'generate_lead',
+      lead_source: data.source || 'website',
+      content_name: data.content_name,
+    });
+  }
+}
+
+/**
+ * Track CompleteRegistration event (app signup completed)
+ * Sends to both Meta Pixel and CAPI
+ */
+export async function trackCompleteRegistration(data: {
+  email?: string;
+  method?: 'email' | 'google' | 'apple';
+  value?: number;
+}): Promise<void> {
+  const eventId = generateEventId();
+  
+  // Client-side: Meta Pixel
+  if (typeof window !== 'undefined' && window.fbq) {
+    window.fbq('track', 'CompleteRegistration', {
+      content_name: 'App Registration',
+      status: 'completed',
+      value: data.value || 100,
+      currency: 'SEK',
+    }, { eventID: eventId });
+  }
+  
+  // Server-side: CAPI
+  await sendToCAPI({
+    event_name: 'CompleteRegistration',
+    event_id: eventId,
+    email: data.email,
+    custom_data: {
+      content_name: 'App Registration',
+      status: 'completed',
+      value: data.value || 100,
+      currency: 'SEK',
+    },
+  });
+}
+
+// ============================================
+// GA4 DATALAYER EVENTS (existing)
+// ============================================
 
 /**
  * Track app installation click
