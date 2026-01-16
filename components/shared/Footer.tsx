@@ -3,12 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-// Extend Window interface to include cookie banner function
-declare global {
-  interface Window {
-    showCookieSettings?: () => void;
-  }
-}
+// Window interface extensions are defined in types/window.d.ts
 
 interface FooterProps {
   variant?: 'marketing' | 'legal';
