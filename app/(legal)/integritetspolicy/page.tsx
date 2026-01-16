@@ -9,11 +9,14 @@ export default function IntegritetspolicyPage() {
       <h1>Integritetspolicy för Flocken</h1>
       
       <p className="lead">
-        <strong>Senast uppdaterad:</strong> 16 december 2025
+        <strong>Senast uppdaterad:</strong> 26 januari 2026
       </p>
       
       <p>
-        Denna integritetspolicy gäller för behandling av personuppgifter i samband med användning av Flocken-appen samt tillhörande tjänster. Policyn gäller även när personuppgifter samlas in via vår webbplats i den utsträckning de avser appen eller användarkonton i Flocken.
+        Denna integritetspolicy gäller för behandling av personuppgifter i samband med användning av Flockens tjänster, inklusive mobilappar (iOS och Android) samt våra webbplatser, såsom flocken.info.
+      </p>
+      <p>
+        Policyn beskriver hur vi samlar in, använder och skyddar personuppgifter i samband med kontoskapande, användning av funktioner, samt mätning och förbättring av våra tjänster. Viss mätning kan ske via våra egna system och domäner innan data delas med utvalda tjänsteleverantörer, i enlighet med denna policy.
       </p>
       
       <p>
@@ -125,6 +128,23 @@ export default function IntegritetspolicyPage() {
         <li>Tekniska loggar (t.ex. IP-adress, enhetstyp, appversion, tidsstämplar, kraschloggar)</li>
       </ul>
       
+      <h3 id="uppgifter-teknisk">2.7 Teknisk användningsdata och mätning</h3>
+      <p>
+        När du använder Flockens appar eller webbplatser samlar vi in teknisk användningsdata i syfte att säkerställa funktionalitet, förbättra användarupplevelsen och analysera hur tjänsten används.
+      </p>
+      <p>
+        Sådan data kan omfatta:
+      </p>
+      <ul>
+        <li>information om enhet och operativsystem</li>
+        <li>appversion, språk och tidsstämplar</li>
+        <li>hur funktioner används (t.ex. visningar, klick och andra interaktioner)</li>
+        <li>tekniska identifierare som krävs för drift, säkerhet och analys</li>
+      </ul>
+      <p>
+        Denna information används inte för att identifiera dig direkt, utan behandlas i första hand på aggregerad eller pseudonymiserad nivå.
+      </p>
+      
       <h2 id="varifrån">3. Varifrån vi får uppgifterna</h2>
       <p>
         Vi samlar främst in personuppgifter direkt från dig när du:
@@ -190,16 +210,35 @@ export default function IntegritetspolicyPage() {
         <li>Felsökning, kraschloggar och prestandaoptimering</li>
       </ul>
       <p>
-        För analys, statistik och förbättring av tjänsten använder vi analysverktyg såsom Google Analytics 4 och Meta (Facebook). Dessa verktyg kan behandla teknisk information såsom IP-adress, enhetsinformation, operativsystem och användarbeteende i appen.
+        För analys och statistik använder vi analysverktyg såsom Google Analytics 4 och/eller Firebase (Google). Dessa verktyg hjälper oss att förstå hur våra tjänster används, identifiera förbättringsområden och säkerställa stabil drift.
       </p>
       <p>
-        Uppgifterna används för att förstå hur tjänsten används, förbättra funktionalitet och säkerställa stabil drift.
+        Analys sker för produktutveckling, felsökning och övergripande statistik, och är inte ett krav för att skapa konto eller använda tjänsten.
       </p>
       <p>
-        <strong>Rättslig grund:</strong> Berättigat intresse (artikel 6.1 f) – vårt berättigade intresse av att förbättra tjänsten, öka säkerheten och förstå användarbeteenden.
+        <strong>Rättslig grund:</strong> Berättigat intresse (artikel 6.1 f) – vårt berättigade intresse av att utveckla och förbättra våra tjänster.
       </p>
       
-      <h3 id="ändamål-juridik">4.6 För att följa lagar och hantera tvister</h3>
+      <h3 id="ändamål-marknadsföring">4.6 Marknadsföring och konverteringsmätning</h3>
+      <p>
+        Flocken kan i framtiden komma att använda mätning kopplad till marknadsföring, till exempel för att förstå om annonser leder till installation, registrering eller annan användaraktivitet.
+      </p>
+      <p>
+        Sådan mätning kan innebära att tekniska händelser delas med marknadsföringsplattformar, såsom Google eller Meta, i syfte att:
+      </p>
+      <ul>
+        <li>mäta effektiviteten av marknadsföring</li>
+        <li>förbättra och optimera kampanjer</li>
+        <li>minska irrelevant annonsering</li>
+      </ul>
+      <p>
+        Denna typ av behandling sker endast när den är tillåten enligt gällande lagstiftning och plattformsregler, och kan kräva samtycke från användaren.
+      </p>
+      <p>
+        <strong>Obs:</strong> Denna formulering beskriver en möjlig framtida behandling och innebär inte att sådan spårning är aktiv i nuvarande version av appen.
+      </p>
+      
+      <h3 id="ändamål-juridik">4.7 För att följa lagar och hantera tvister</h3>
       <p><strong>Exempel på behandlingar:</strong></p>
       <ul>
         <li>Uppfylla bokförings- och andra rättsliga skyldigheter</li>
@@ -209,7 +248,7 @@ export default function IntegritetspolicyPage() {
         <strong>Rättslig grund:</strong> Rättslig förpliktelse (artikel 6.1 c) – när vi är skyldiga enligt lag. Berättigat intresse (artikel 6.1 f) – för att bevaka och försvara våra rättsliga intressen.
       </p>
       
-      <h3 id="ändamål-profilering">4.7 Profilering och rekommendationer</h3>
+      <h3 id="ändamål-profilering">4.8 Profilering och rekommendationer</h3>
       <p>
         Eventuella rekommendationer i appen baseras på användarens egna val, filter och inställningar (t.ex. ras, storlek eller geografisk närhet).
       </p>
@@ -242,7 +281,9 @@ export default function IntegritetspolicyPage() {
       <ul>
         <li><strong>Supabase (backend och databas)</strong> – för lagring och hantering av användarkonton och data. Databastjänster tillhandahålls via Supabase, vars servrar är lokaliserade inom EU (Irland).</li>
         <li><strong>Google Maps API</strong> – för kartfunktioner och geolokalisering</li>
-        <li><strong>Google Analytics 4 och Meta (Facebook)</strong> – för analys och spårning</li>
+        <li><strong>Google (t.ex. Google Analytics och Firebase)</strong> – för analys och statistik</li>
+        <li><strong>Tekniska tjänsteleverantörer</strong> för drift, säkerhet och mätning</li>
+        <li><strong>Marknadsföringsplattformar</strong> (t.ex. Google Ads eller Meta), i den mån marknadsföringsmätning aktiveras och är tillåten enligt lag</li>
         <li><strong>Betalningsleverantörer</strong> (om vi i framtiden erbjuder betalfunktioner direkt i appen)</li>
         <li><strong>Hosting och infrastruktur</strong> – där appen och databasservrar körs</li>
       </ul>
@@ -288,7 +329,22 @@ export default function IntegritetspolicyPage() {
         <li><strong>Loggar och tekniska uppgifter:</strong> sparas endast så länge som behövs för säkerhet, felsökning och utveckling.</li>
       </ul>
       
-      <h2 id="rättigheter">7. Dina rättigheter</h2>
+      <h2 id="samtycke-val">7. Samtycke och dina val</h2>
+      <p>
+        Du kan påverka hur viss behandling av personuppgifter sker:
+      </p>
+      <ul>
+        <li><strong>Webb:</strong> För användning av cookies och liknande tekniker kan du lämna eller återkalla ditt samtycke via våra cookieinställningar. Dessa nås via{' '}
+        <a href="https://flocken.info/privacy-choices" className="text-flocken-olive hover:underline">
+          https://flocken.info/privacy-choices
+        </a>{' '}eller via länk i webbplatsens sidfot.</li>
+        <li><strong>App:</strong> Viss mätning kan styras av inställningar i din enhet eller i appen. Eventuell spårning för marknadsföringsändamål är alltid frivillig och påverkar inte möjligheten att använda tjänsten.</li>
+      </ul>
+      <p>
+        Du kan när som helst ändra dina val.
+      </p>
+      
+      <h2 id="rättigheter">8. Dina rättigheter</h2>
       <p>
         Som användare har du rätt att begära tillgång till de personuppgifter vi behandlar om dig, begära rättelse av felaktiga uppgifter eller invända mot viss behandling.
       </p>
@@ -354,7 +410,7 @@ export default function IntegritetspolicyPage() {
         För att utöva dina rättigheter kan du kontakta oss via de kontaktuppgifter som anges i avsnitt 1. Vi kan behöva be dig bekräfta din identitet för att säkerställa att vi lämnar ut uppgifter till rätt person.
       </p>
       
-      <h2 id="säkerhet">8. Datasäkerhet</h2>
+      <h2 id="säkerhet">9. Datasäkerhet</h2>
       <p>
         Vi vidtar lämpliga tekniska och organisatoriska säkerhetsåtgärder för att skydda dina personuppgifter, bl.a.:
       </p>
@@ -369,7 +425,7 @@ export default function IntegritetspolicyPage() {
         Trots våra åtgärder kan ingen teknisk lösning vara 100 % säker. Om en personuppgiftsincident skulle inträffa hanterar vi den i enlighet med GDPR och, vid behov, anmäler till IMY samt informerar berörda användare.
       </p>
       
-      <h2 id="barn">9. Barns integritet</h2>
+      <h2 id="barn">10. Barns integritet</h2>
       <p>
         <strong>Flocken är inte avsedd för barn under 13 år.</strong>
       </p>
@@ -379,7 +435,7 @@ export default function IntegritetspolicyPage() {
         <li>Vi kan ha en åldersverifiering vid registrering och du bekräftar att du är tillräckligt gammal enligt vår policy och tillämplig lag när du skapar konto.</li>
       </ul>
       
-      <h2 id="ändringar">10. Ändringar i denna integritetspolicy</h2>
+      <h2 id="ändringar">11. Ändringar i denna integritetspolicy</h2>
       <ul>
         <li>Vi kan ibland uppdatera denna integritetspolicy, t.ex. om vi lägger till nya funktioner eller om lagstiftningen ändras.</li>
         <li>Vid större ändringar informerar vi dig tydligt i appen eller via e-post.</li>
@@ -387,7 +443,7 @@ export default function IntegritetspolicyPage() {
         <li>Datumet högst upp på sidan visar när policyn senast uppdaterades.</li>
       </ul>
       
-      <h2 id="kontakt">11. Kontakt</h2>
+      <h2 id="kontakt">12. Kontakt</h2>
       <p>
         Har du frågor om hur vi behandlar dina personuppgifter, eller vill du utöva någon av dina rättigheter?
       </p>
@@ -402,12 +458,18 @@ export default function IntegritetspolicyPage() {
         </a>
       </p>
       
-      <h2 id="privacy-choices">12. Hantera dina integritetsval</h2>
+      <h2 id="privacy-choices">13. Hantera dina integritetsval</h2>
       <p>
         Mer information om hur du kan hantera, ändra eller radera dina uppgifter finns på vår sida för{' '}
         <a href="/privacy-choices" className="text-flocken-olive hover:underline">
           användarens integritetsval
         </a>.
+      </p>
+      <p>
+        För mer information om cookies och för att ändra dina cookieinställningar, se:{' '}
+        <a href="https://flocken.info/privacy-choices" className="text-flocken-olive hover:underline">
+          https://flocken.info/privacy-choices
+        </a>
       </p>
     </>
   );
