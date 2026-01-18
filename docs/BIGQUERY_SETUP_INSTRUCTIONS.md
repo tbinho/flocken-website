@@ -1,13 +1,7 @@
 # BigQuery Setup Instructions för Flocken
 
-**Status:** ⚠️ Pågående (datasets + länk skapad, inväntar första tabell)  
+**Status:** ⏳ Ready to implement  
 **Tidsåtgång:** 30-60 minuter
-
-### Snabbsammanfattning (läget nu)
-- ✅ Datasets skapade (EU): `flocken_raw`, `flocken_curated`, `flocken_marts`
-- ✅ GA4 → BigQuery länk skapad: projekt `nastahem-tracking`, region **EU**, export: Daily + Streaming
-- ⏳ Väntar på första tabellen i GA4-datasetet `analytics_518338757` (t.ex. `events_intraday_YYYYMMDD`)
-- ⏳ När tabell finns: kör views/metrics-SQL (se Steg 3 nedan, använd källan `analytics_518338757.events_*` och Processing location **EU**)
 
 ---
 
@@ -19,7 +13,7 @@ Aktivera BigQuery export från GA4 för obegränsad data retention och SQL-analy
 
 ## 📋 Steg-för-steg Implementation
 
-### **Steg 1: Kör BigQuery Setup Script (KLART)**
+### **Steg 1: Kör BigQuery Setup Script**
 
 **1.1 Öppna BigQuery Console**
 - Gå till: https://console.cloud.google.com/bigquery
@@ -41,7 +35,7 @@ Aktivera BigQuery export från GA4 för obegränsad data retention och SQL-analy
 
 ---
 
-### **Steg 2: Aktivera GA4 → BigQuery Linking (KLART)**
+### **Steg 2: Aktivera GA4 → BigQuery Linking**
 
 **2.1 Öppna GA4 Admin**
 - Gå till: https://analytics.google.com
@@ -69,7 +63,7 @@ Aktivera BigQuery export från GA4 för obegränsad data retention och SQL-analy
 
 ---
 
-### **Steg 3: Verifiera Data Export (⏳ PÅGÅR)**
+### **Steg 3: Verifiera Data Export**
 
 **3.1 Vänta på första export**
 - Daily export körs vanligtvis kl 04:00 UTC
@@ -98,16 +92,7 @@ LIMIT 10;
 
 ---
 
-### **Steg 4: Skapa Views och Tables (körs när första tabellen finns)**
-
-**OBS:** Använd käll-datasetet `analytics_518338757` (GA4-datasetet som skapas av länken) och Processing location **EU**. Exempel: `FROM \`nastahem-tracking.analytics_518338757.events_*\``.
-
-Kör SQL-blocket för:
-- View: `flocken_curated.events`
-- Table: `flocken_marts.daily_metrics`
-- Views: `flocken_curated.user_journey`, `flocken_curated.conversion_funnel`
-
-> Tips: Blocket finns i den senaste uppdateringen i chatten. Kontrollera att GA4-exporttabeller (`events_intraday_*` eller `events_*`) finns innan körning.
+### **Steg 4: Verifiera Views och Tables**
 
 **4.1 Test Curated Events View**
 ```sql
@@ -220,24 +205,12 @@ ORDER BY event_timestamp;
 
 ## ✅ Checklist
 
-### **Steg 1: Datasets (KLART ✅)**
-- [x] BigQuery datasets skapade (flocken_raw, flocken_curated, flocken_marts)
-- [x] Location: EU
-
-### **Steg 2: GA4 Linking (KLART ✅)**
-- [x] GA4 → BigQuery linking aktiverad
-- [x] Projekt: nastahem-tracking
-- [x] Region: EU
-- [x] Daily export aktiverad
-- [x] Streaming export aktiverad
-
-### **Steg 3: Vänta på första tabell (PÅGÅENDE ⏳)**
-- [ ] GA4 dataset `analytics_518338757` skapad automatiskt
-- [ ] Första tabell syns: `events_intraday_YYYYMMDD` eller `events_YYYYMMDD`
-
-### **Steg 4: Views och Tables (VÄNTAR ⏳)**
-- [ ] SQL-script körs för views och tables
-- [ ] Processing location: EU vald
+- [ ] BigQuery datasets skapade (flocken_raw, flocken_curated, flocken_marts)
+- [ ] GA4 → BigQuery linking aktiverad
+- [ ] Dataset vald: flocken_raw
+- [ ] Daily export aktiverad
+- [ ] Streaming export aktiverad (valfritt)
+- [ ] Test query körs korrekt
 - [ ] Views fungerar (curated.events, user_journey, conversion_funnel)
 - [ ] Daily metrics table fungerar
 

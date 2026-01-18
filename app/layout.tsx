@@ -102,21 +102,35 @@ export default function RootLayout({
                   'https://connect.facebook.net/en_US/fbevents.js');
                   fbq('init', '${process.env.NEXT_PUBLIC_META_PIXEL_ID}');
                   
-                  // Wait for cookie consent before tracking PageView
+                  // Wait for cookie consent before tracking ViewContent
                   // Cookie banner will call fbq('consent', 'grant') and fbq('track', 'PageView') when marketing cookies are accepted
-                  // If consent already exists, cookie banner will handle it
+                  // We only track ViewContent here (PageView is handled by cookie banner to avoid duplicates)
                   function checkConsentAndTrack() {
                     try {
                       const consent = JSON.parse(localStorage.getItem('cookie-consent') || '{}');
                       if (consent.marketing) {
                         fbq('consent', 'grant');
-                        fbq('track', 'PageView');
+                        // Track ViewContent for landing page view measurement in Meta Ads Manager
+                        // Note: PageView is tracked by cookie banner to avoid duplicates
+                        fbq('track', 'ViewContent', {
+                          content_name: 'Landing Page',
+                          content_category: 'Homepage',
+                          content_ids: ['flocken-homepage'],
+                          content_type: 'landing_page',
+                        });
                       } else {
                         // Wait for consentchange event from cookie banner
                         window.addEventListener('consentchange', function(e) {
                           if (e.detail && e.detail.marketing) {
                             fbq('consent', 'grant');
-                            fbq('track', 'PageView');
+                            // Track ViewContent for landing page view measurement in Meta Ads Manager
+                            // Note: PageView is tracked by cookie banner to avoid duplicates
+                            fbq('track', 'ViewContent', {
+                              content_name: 'Landing Page',
+                              content_category: 'Homepage',
+                              content_ids: ['flocken-homepage'],
+                              content_type: 'landing_page',
+                            });
                           }
                         });
                       }
@@ -125,7 +139,14 @@ export default function RootLayout({
                       window.addEventListener('consentchange', function(e) {
                         if (e.detail && e.detail.marketing) {
                           fbq('consent', 'grant');
-                          fbq('track', 'PageView');
+                          // Track ViewContent for landing page view measurement in Meta Ads Manager
+                          // Note: PageView is tracked by cookie banner to avoid duplicates
+                          fbq('track', 'ViewContent', {
+                            content_name: 'Landing Page',
+                            content_category: 'Homepage',
+                            content_ids: ['flocken-homepage'],
+                            content_type: 'landing_page',
+                          });
                         }
                       });
                     }
@@ -136,15 +157,7 @@ export default function RootLayout({
                 `,
               }}
             />
-            <noscript>
-              <img
-                height="1"
-                width="1"
-                style={{ display: 'none' }}
-                src={`https://www.facebook.com/tr?id=${process.env.NEXT_PUBLIC_META_PIXEL_ID}&ev=PageView&noscript=1`}
-                alt=""
-              />
-            </noscript>
+            {/* Noscript pixel removed to avoid tracking without consent */}
           </>
         )}
       </head>

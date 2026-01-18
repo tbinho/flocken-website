@@ -16,7 +16,7 @@ export default function IntegritetspolicyPage() {
       <h1>Integritetspolicy för Flocken</h1>
       
       <p className="lead">
-        <strong>Senast uppdaterad:</strong> 26 januari 2016
+        <strong>Senast uppdaterad:</strong> 18 januari 2026
       </p>
       
       <p>
@@ -230,10 +230,10 @@ export default function IntegritetspolicyPage() {
       
       <h3 id="ändamål-marknadsföring">4.6 Marknadsföring och konverteringsmätning</h3>
       <p>
-        Flocken kan i framtiden komma att använda mätning kopplad till marknadsföring, till exempel för att förstå om annonser leder till installation, registrering eller annan användaraktivitet.
+        Flocken använder mätning kopplad till marknadsföring på vår webbplats (flocken.info) för att förstå om annonser leder till besök, installation, registrering eller annan användaraktivitet.
       </p>
       <p>
-        Sådan mätning kan innebära att tekniska händelser delas med marknadsföringsplattformar, såsom Google eller Meta, i syfte att:
+        Denna mätning innebär att tekniska händelser kan delas med marknadsföringsplattformar, såsom Google eller Meta, i syfte att:
       </p>
       <ul>
         <li>mäta effektiviteten av marknadsföring</li>
@@ -241,10 +241,21 @@ export default function IntegritetspolicyPage() {
         <li>minska irrelevant annonsering</li>
       </ul>
       <p>
-        Denna typ av behandling sker endast när den är tillåten enligt gällande lagstiftning och plattformsregler, och kan kräva samtycke från användaren.
+        Vi använder följande verktyg för marknadsföringsmätning:
+      </p>
+      <ul>
+        <li><strong>Meta Pixel (Facebook Pixel)</strong> – för att mäta konverteringar från Meta-annonser och förbättra annonsering</li>
+        <li><strong>Google Tag Manager</strong> – för att hantera och koordinera spårningsskript</li>
+      </ul>
+      <p>
+        <strong>Viktigt:</strong> Marknadsföringsspårning aktiveras endast om du ger ditt samtycke via vår cookie-banner. Du kan när som helst ändra dina val via{' '}
+        <a href="/privacy-choices" className="text-flocken-olive hover:underline">
+          användarens integritetsval
+        </a>{' '}
+        eller genom att klicka på "Hantera cookies" i sidfoten.
       </p>
       <p>
-        <strong>Obs:</strong> Denna formulering beskriver en möjlig framtida behandling och innebär inte att sådan spårning är aktiv i nuvarande version av appen.
+        <strong>Rättslig grund:</strong> Samtycke (artikel 6.1 a GDPR) – marknadsföringsspårning sker endast efter att du aktivt godkänt detta via cookie-bannern.
       </p>
       
       <h3 id="ändamål-juridik">4.7 För att följa lagar och hantera tvister</h3>

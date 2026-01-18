@@ -737,6 +737,11 @@
       // Allow Meta Pixel if marketing consent was previously granted
       if (typeof window.fbq !== 'undefined') {
         window.fbq('consent', 'grant');
+        // CRITICAL: Track PageView for returning visitors with existing consent
+        // This is required for Meta Ads Manager "visning av målsida" to work
+        window.fbq('track', 'PageView');
+        // Note: ViewContent is handled by layout.tsx to avoid duplicates
+        console.log('Cookie banner: PageView tracked for returning visitor with existing consent');
       }
     }
 

@@ -16,6 +16,40 @@ declare global {
 }
 
 /**
+ * Check if marketing cookie consent is granted
+ * Required for GDPR compliance - Meta Pixel events should only fire with consent
+ */
+function hasMarketingConsent(): boolean {
+  if (typeof window === 'undefined' || typeof localStorage === 'undefined') {
+    return false;
+  }
+  
+  try {
+    const consent = JSON.parse(localStorage.getItem('cookie-consent') || '{}');
+    return consent.marketing === true;
+  } catch (e) {
+    return false;
+  }
+}
+
+/**
+ * Check if analytics cookie consent is granted
+ * Required for GDPR compliance - GA4 events should only fire with consent
+ */
+function hasAnalyticsConsent(): boolean {
+  if (typeof window === 'undefined' || typeof localStorage === 'undefined') {
+    return false;
+  }
+  
+  try {
+    const consent = JSON.parse(localStorage.getItem('cookie-consent') || '{}');
+    return consent.analytics === true;
+  } catch (e) {
+    return false;
+  }
+}
+
+/**
  * Get Facebook browser cookies for better attribution
  */
 function getFacebookCookies(): { fbp?: string; fbc?: string } {
@@ -79,27 +113,29 @@ export async function trackLead(data: {
 }): Promise<void> {
   const eventId = generateEventId();
   
-  // Client-side: Meta Pixel
-  if (typeof window !== 'undefined' && window.fbq) {
+  // Client-side: Meta Pixel (only if marketing consent is granted)
+  if (typeof window !== 'undefined' && window.fbq && hasMarketingConsent()) {
     window.fbq('track', 'Lead', {
       content_name: data.content_name || 'Waitlist Signup',
       content_category: data.source || 'website',
     }, { eventID: eventId });
   }
   
-  // Server-side: CAPI
-  await sendToCAPI({
-    event_name: 'Lead',
-    event_id: eventId,
-    email: data.email,
-    custom_data: {
-      content_name: data.content_name || 'Waitlist Signup',
-      content_category: data.source || 'website',
-    },
-  });
+  // Server-side: CAPI (only if marketing consent is granted)
+  if (hasMarketingConsent()) {
+    await sendToCAPI({
+      event_name: 'Lead',
+      event_id: eventId,
+      email: data.email,
+      custom_data: {
+        content_name: data.content_name || 'Waitlist Signup',
+        content_category: data.source || 'website',
+      },
+    });
+  }
   
   // Also push to dataLayer for GA4
-  if (typeof window !== 'undefined' && window.dataLayer) {
+  if (typeof window !== 'undefined' && window.dataLayer && hasAnalyticsConsent()) {
     window.dataLayer.push({
       event: 'generate_lead',
       lead_source: data.source || 'website',
@@ -119,8 +155,8 @@ export async function trackCompleteRegistration(data: {
 }): Promise<void> {
   const eventId = generateEventId();
   
-  // Client-side: Meta Pixel
-  if (typeof window !== 'undefined' && window.fbq) {
+  // Client-side: Meta Pixel (only if marketing consent is granted)
+  if (typeof window !== 'undefined' && window.fbq && hasMarketingConsent()) {
     window.fbq('track', 'CompleteRegistration', {
       content_name: 'App Registration',
       status: 'completed',
@@ -129,18 +165,20 @@ export async function trackCompleteRegistration(data: {
     }, { eventID: eventId });
   }
   
-  // Server-side: CAPI
-  await sendToCAPI({
-    event_name: 'CompleteRegistration',
-    event_id: eventId,
-    email: data.email,
-    custom_data: {
-      content_name: 'App Registration',
-      status: 'completed',
-      value: data.value || 100,
-      currency: 'SEK',
-    },
-  });
+  // Server-side: CAPI (only if marketing consent is granted)
+  if (hasMarketingConsent()) {
+    await sendToCAPI({
+      event_name: 'CompleteRegistration',
+      event_id: eventId,
+      email: data.email,
+      custom_data: {
+        content_name: 'App Registration',
+        status: 'completed',
+        value: data.value || 100,
+        currency: 'SEK',
+      },
+    });
+  }
 }
 
 // ============================================
@@ -152,20 +190,55 @@ export async function trackCompleteRegistration(data: {
  * Använd när användare klickar på Google Play eller App Store länkar
  * 
  * Standard: app_install (följer Spitakolus event naming convention)
+ * Skickar också till Meta Pixel som Lead event för att tracka app-installation intresse
  */
 export function trackAppInstall(platform: 'android' | 'ios', source?: string) {
-  if (typeof window === 'undefined' || !window.dataLayer) {
-    console.warn('dataLayer not available');
+  if (typeof window === 'undefined') {
+    console.warn('Window not available');
     return;
   }
 
-  window.dataLayer.push({
-    event: 'app_install',
-    platform: platform,
-    source: source || 'website',
-    value: 50, // Estimated value in SEK (50-150 SEK range per documentation)
-    currency: 'SEK'
-  });
+  const eventId = generateEventId();
+  const value = 50; // Estimated value in SEK
+
+  // GA4: dataLayer (analytics consent required)
+  if (window.dataLayer && hasAnalyticsConsent()) {
+    window.dataLayer.push({
+      event: 'app_install',
+      platform: platform,
+      source: source || 'website',
+      value: value,
+      currency: 'SEK'
+    });
+  }
+
+  // Meta Pixel: Track as Lead event (app installation intent) - only if marketing consent is granted
+  if (window.fbq && hasMarketingConsent()) {
+    window.fbq('track', 'Lead', {
+      content_name: 'App Install Click',
+      content_category: platform === 'android' ? 'Google Play' : 'App Store',
+      content_ids: [`app_install_${platform}`],
+      value: value,
+      currency: 'SEK',
+    }, { eventID: eventId });
+  }
+
+  // Also send to CAPI for redundancy (only if marketing consent is granted)
+  if (hasMarketingConsent()) {
+    sendToCAPI({
+      event_name: 'Lead',
+      event_id: eventId,
+      custom_data: {
+        content_name: 'App Install Click',
+        content_category: platform === 'android' ? 'Google Play' : 'App Store',
+        content_ids: [`app_install_${platform}`],
+        value: value,
+        currency: 'SEK',
+      },
+    }).catch(() => {
+      // Silently fail if CAPI is not configured
+    });
+  }
 }
 
 /**
@@ -173,27 +246,64 @@ export function trackAppInstall(platform: 'android' | 'ios', source?: string) {
  * Använd när användare registrerar sig
  * 
  * Standard: sign_up (samma som Nästa Hem för konsistent cross-brand analysis)
+ * Skickar också till Meta Pixel som CompleteRegistration event
  */
-export function trackSignUp(method: 'email' | 'google' | 'apple', userId?: string) {
-  if (typeof window === 'undefined' || !window.dataLayer) {
-    console.warn('dataLayer not available');
+export async function trackSignUp(method: 'email' | 'google' | 'apple', userId?: string, email?: string) {
+  if (typeof window === 'undefined') {
+    console.warn('Window not available');
     return;
   }
 
-  window.dataLayer.push({
-    event: 'sign_up',
-    signup_method: method,
-    user_id: userId,
-    value: 100, // Estimated value in SEK (100-200 SEK range per standard)
-    currency: 'SEK'
-  });
+  const eventId = generateEventId();
+  const value = 100; // Estimated value in SEK
+
+  // GA4: dataLayer (analytics consent required)
+  if (window.dataLayer && hasAnalyticsConsent()) {
+    window.dataLayer.push({
+      event: 'sign_up',
+      signup_method: method,
+      user_id: userId,
+      value: value,
+      currency: 'SEK'
+    });
+  }
+
+  // Meta Pixel: Track as CompleteRegistration event (only if marketing consent is granted)
+  if (window.fbq && hasMarketingConsent()) {
+    window.fbq('track', 'CompleteRegistration', {
+      content_name: 'User Sign Up',
+      status: 'completed',
+      signup_method: method,
+      value: value,
+      currency: 'SEK',
+    }, { eventID: eventId });
+  }
+
+  // Also send to CAPI for redundancy (only if marketing consent is granted)
+  if (hasMarketingConsent()) {
+    await sendToCAPI({
+      event_name: 'CompleteRegistration',
+      event_id: eventId,
+      email: email,
+      custom_data: {
+        content_name: 'User Sign Up',
+        status: 'completed',
+        signup_method: method,
+        value: value,
+        currency: 'SEK',
+      },
+    }).catch(() => {
+      // Silently fail if CAPI is not configured
+    });
+  }
 }
 
 /**
  * Track purchase/subscription event
  * Använd när användare köper premium subscription
+ * Skickar också till Meta Pixel som Purchase event
  */
-export function trackPurchase(
+export async function trackPurchase(
   transactionId: string,
   value: number,
   items: Array<{
@@ -202,20 +312,57 @@ export function trackPurchase(
     item_id?: string;
     quantity?: number;
     price: number;
-  }>
+  }>,
+  email?: string
 ) {
-  if (typeof window === 'undefined' || !window.dataLayer) {
-    console.warn('dataLayer not available');
+  if (typeof window === 'undefined') {
+    console.warn('Window not available');
     return;
   }
 
-  window.dataLayer.push({
-    event: 'purchase',
-    transaction_id: transactionId,
-    value: value,
-    currency: 'SEK',
-    items: items
-  });
+  const eventId = generateEventId();
+
+  // GA4: dataLayer (analytics consent required)
+  if (window.dataLayer && hasAnalyticsConsent()) {
+    window.dataLayer.push({
+      event: 'purchase',
+      transaction_id: transactionId,
+      value: value,
+      currency: 'SEK',
+      items: items
+    });
+  }
+
+  // Meta Pixel: Track as Purchase event (only if marketing consent is granted)
+  if (window.fbq && hasMarketingConsent()) {
+    window.fbq('track', 'Purchase', {
+      content_ids: items.map(item => item.item_id || item.item_name),
+      content_name: items.map(item => item.item_name).join(', '),
+      content_type: 'product',
+      value: value,
+      currency: 'SEK',
+      num_items: items.reduce((sum, item) => sum + (item.quantity || 1), 0),
+    }, { eventID: eventId });
+  }
+
+  // Also send to CAPI for redundancy (only if marketing consent is granted)
+  if (hasMarketingConsent()) {
+    await sendToCAPI({
+      event_name: 'Purchase',
+      event_id: eventId,
+      email: email,
+      custom_data: {
+        content_ids: items.map(item => item.item_id || item.item_name),
+        content_name: items.map(item => item.item_name).join(', '),
+        content_type: 'product',
+        value: value,
+        currency: 'SEK',
+        num_items: items.reduce((sum, item) => sum + (item.quantity || 1), 0),
+      },
+    }).catch(() => {
+      // Silently fail if CAPI is not configured
+    });
+  }
 }
 
 /**
@@ -225,6 +372,9 @@ export function trackPurchase(
 export function trackSubscriptionStart(transactionId: string, value: number) {
   if (typeof window === 'undefined' || !window.dataLayer) {
     console.warn('dataLayer not available');
+    return;
+  }
+  if (!hasAnalyticsConsent()) {
     return;
   }
 
@@ -246,6 +396,9 @@ export function trackSubscriptionStart(transactionId: string, value: number) {
 export function trackListingCreated(listingId: string, listingType: string = 'dog') {
   if (typeof window === 'undefined' || !window.dataLayer) {
     console.warn('dataLayer not available');
+    return;
+  }
+  if (!hasAnalyticsConsent()) {
     return;
   }
 
@@ -271,6 +424,9 @@ export function trackBookingCreated(
     console.warn('dataLayer not available');
     return;
   }
+  if (!hasAnalyticsConsent()) {
+    return;
+  }
 
   window.dataLayer.push({
     event: 'booking_created',
@@ -294,6 +450,9 @@ export function trackBookingConfirmed(
     console.warn('dataLayer not available');
     return;
   }
+  if (!hasAnalyticsConsent()) {
+    return;
+  }
 
   window.dataLayer.push({
     event: 'booking_confirmed',
@@ -315,6 +474,9 @@ export function trackMessageSent(messageType: 'text' | 'image' | 'video', conver
     console.warn('dataLayer not available');
     return;
   }
+  if (!hasAnalyticsConsent()) {
+    return;
+  }
 
   window.dataLayer.push({
     event: 'message_sent',
@@ -334,6 +496,9 @@ export function trackWalkSaved(routeId: string, distanceKm?: number) {
     console.warn('dataLayer not available');
     return;
   }
+  if (!hasAnalyticsConsent()) {
+    return;
+  }
 
   window.dataLayer.push({
     event: 'walk_saved',
@@ -351,6 +516,9 @@ export function trackWalkSaved(routeId: string, distanceKm?: number) {
 export function trackPlaceVisited(placeId: string, placeType?: string) {
   if (typeof window === 'undefined' || !window.dataLayer) {
     console.warn('dataLayer not available');
+    return;
+  }
+  if (!hasAnalyticsConsent()) {
     return;
   }
 
