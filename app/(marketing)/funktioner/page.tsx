@@ -44,36 +44,30 @@ export default function FunktionerPage() {
       {/* Navigation Menu */}
       <section className="sticky top-20 z-40 bg-white/95 backdrop-blur-sm border-b border-flocken-sand shadow-soft">
         <div className="container-custom">
-          <nav className="flex flex-wrap justify-center gap-4 py-4">
+          <nav className="flex flex-nowrap justify-center gap-2 sm:gap-4 py-4 overflow-x-auto">
             <button
               onClick={() => scrollToSection(paraRef)}
-              className="px-6 py-2 text-flocken-brown hover:text-flocken-olive hover:bg-flocken-cream rounded-lg font-semibold transition-all"
+              className="px-3 sm:px-6 py-2 text-flocken-brown hover:text-flocken-olive bg-flocken-cream rounded-lg font-semibold transition-all whitespace-nowrap flex-shrink-0"
             >
               Para
             </button>
             <button
               onClick={() => scrollToSection(passaRef)}
-              className="px-6 py-2 text-flocken-brown hover:text-flocken-olive hover:bg-flocken-cream rounded-lg font-semibold transition-all"
+              className="px-3 sm:px-6 py-2 text-flocken-brown hover:text-flocken-olive bg-flocken-cream rounded-lg font-semibold transition-all whitespace-nowrap flex-shrink-0"
             >
               Passa
             </button>
             <button
               onClick={() => scrollToSection(rastaRef)}
-              className="px-6 py-2 text-flocken-brown hover:text-flocken-olive hover:bg-flocken-cream rounded-lg font-semibold transition-all"
+              className="px-3 sm:px-6 py-2 text-flocken-brown hover:text-flocken-olive bg-flocken-cream rounded-lg font-semibold transition-all whitespace-nowrap flex-shrink-0"
             >
               Rasta
             </button>
             <button
               onClick={() => scrollToSection(besokaRef)}
-              className="px-6 py-2 text-flocken-brown hover:text-flocken-olive hover:bg-flocken-cream rounded-lg font-semibold transition-all"
+              className="px-3 sm:px-6 py-2 text-flocken-brown hover:text-flocken-olive bg-flocken-cream rounded-lg font-semibold transition-all whitespace-nowrap flex-shrink-0"
             >
               Besöka
-            </button>
-            <button
-              onClick={() => scrollToSection(minaSidorRef)}
-              className="px-6 py-2 text-flocken-brown hover:text-flocken-olive hover:bg-flocken-cream rounded-lg font-semibold transition-all"
-            >
-              Mina sidor
             </button>
           </nav>
         </div>
