@@ -84,7 +84,7 @@ export function Header({ variant = 'marketing' }: HeaderProps) {
             </div>
             
             {variant === 'marketing' && (
-              <Link href="/download" className="btn-primary">
+              <Link href="/download" className="btn-primary ml-8">
                 Ladda ner appen
               </Link>
             )}
