@@ -39,9 +39,9 @@ export function Header({ variant = 'marketing' }: HeaderProps) {
             </Link>
             
             {variant === 'marketing' && (
-              <button className="btn-primary">
+              <Link href="/download" className="btn-primary">
                 Ladda ner appen
-              </button>
+              </Link>
             )}
           </div>
           
@@ -79,9 +79,9 @@ export function Header({ variant = 'marketing' }: HeaderProps) {
               Om appen
             </Link>
             {variant === 'marketing' && (
-              <button className="btn-primary w-full mt-4">
+              <Link href="/download" className="btn-primary w-full mt-4" onClick={() => setMobileMenuOpen(false)}>
                 Ladda ner appen
-              </button>
+              </Link>
             )}
           </div>
         )}

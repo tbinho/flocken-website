@@ -4,7 +4,8 @@ const fs = require('fs');
 
 async function processImage() {
   const projectRoot = path.join(__dirname, '..');
-  const inputPath = path.join(projectRoot, 'public', 'assets', 'flocken', 'screenshots', 'flocken_passa_yasmin.png');
+  // Läs från originalbilden i C:\Dev
+  const inputPath = path.join('C:', 'Dev', 'flocken_screens_passa_yasmin.png');
   const outputPath = path.join(projectRoot, 'public', 'assets', 'flocken', 'screenshots', 'flocken_passa_yasmin.png');
 
   if (!fs.existsSync(inputPath)) {
@@ -14,24 +15,28 @@ async function processImage() {
 
   console.log('📱 Bearbetar bilden...');
 
-  // iPhone 14 Pro dimensioner (skalade för PhoneMockup som använder 320px bredd)
-  const DEVICE_WIDTH = 320;
-  const DEVICE_HEIGHT = 693;
-  const CORNER_RADIUS = 35;
+  // iPhone 14 Pro dimensioner (samma som create-iphone-mockups.js)
+  const DEVICE_WIDTH = 430;
+  const DEVICE_HEIGHT = 932;
+  const CORNER_RADIUS = 47;
 
-  // Mockup dimensioner (med marginal)
-  const MOCKUP_WIDTH = 320;
-  const MOCKUP_HEIGHT = 693;
+  // Mockup dimensioner (med marginal för skugga - samma som Rasta)
+  const MOCKUP_WIDTH = 500;
+  const MOCKUP_HEIGHT = 1020;
 
   // Beräkna centrering
   const OFFSET_X = Math.floor((MOCKUP_WIDTH - DEVICE_WIDTH) / 2);
   const OFFSET_Y = Math.floor((MOCKUP_HEIGHT - DEVICE_HEIGHT) / 2);
 
   try {
-    // Läs in screenshot och skala till EXAKT iPhone-storlek
+    // Läs in originalbild och få metadata
+    const metadata = await sharp(inputPath).metadata();
+    console.log('Original bild:', metadata.width, 'x', metadata.height);
+    
+    // Läs in screenshot och skala till EXAKT iPhone-storlek (fyller hela skärmen)
     const resizedScreenshot = await sharp(inputPath)
       .resize(DEVICE_WIDTH, DEVICE_HEIGHT, {
-        fit: 'cover',
+        fit: 'cover',  // Fyller hela området, croppar om nödvändigt
         position: 'center'
       })
       .png()
@@ -84,8 +89,8 @@ async function processImage() {
               fill="rgb(20,20,20)" stroke="rgb(50,50,50)" stroke-width="2"/>
         
         <!-- Dynamic Island -->
-        <ellipse cx="${OFFSET_X + DEVICE_WIDTH/2}" cy="${OFFSET_Y + 22}" 
-                 rx="45" ry="14" fill="rgb(10,10,10)"/>
+        <ellipse cx="${OFFSET_X + DEVICE_WIDTH/2}" cy="${OFFSET_Y + 30}" 
+                 rx="60" ry="18" fill="rgb(10,10,10)"/>
       </svg>
     `;
 
