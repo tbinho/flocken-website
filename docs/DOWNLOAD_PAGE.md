@@ -11,9 +11,8 @@ Sidan `/download` automatiskt redirectar användare till rätt app store baserat
 
 ### Filer
 
-1. **`app/download/route.ts`** - Server-side redirect baserat på User-Agent
-2. **`app/download/page.tsx`** - Fallback UI (används sällan eftersom route.ts tar över)
-3. **`app/download/manual/page.tsx`** - Manual selection för desktop-användare
+1. **`app/download/route.ts`** - Server-side redirect baserat på User-Agent (hanterar alla GET-requests)
+2. **`app/download/manual/page.tsx`** - Manual selection för desktop-användare
 
 ### Miljövariabler (Valfria)
 
