@@ -2,7 +2,6 @@
 
 import { useRef } from 'react';
 import { VideoPlayer } from '@/components/marketing/VideoPlayer';
-import { VideoInPhone } from '@/components/marketing/VideoInPhone';
 
 export default function FunktionerPage() {
   const paraRef = useRef<HTMLElement>(null);
@@ -97,11 +96,13 @@ export default function FunktionerPage() {
 
             <div className="grid lg:grid-cols-2 gap-12 items-start mb-12">
               {/* Video */}
-              <div className="relative w-full max-w-sm mx-auto aspect-[9/16] rounded-2xl overflow-hidden shadow-card bg-flocken-sand lg:sticky lg:top-32">
-                <VideoPlayer
-                  src="/assets/flocken/videos/para.mp4"
-                  poster="/assets/flocken/screenshots/flocken_para_karta-alla-hundar.png"
-                />
+              <div className="relative w-full max-w-sm mx-auto aspect-[9/16] rounded-2xl overflow-hidden shadow-card bg-flocken-sand lg:sticky lg:top-32 p-3">
+                <div className="w-full h-full border-4 border-black rounded-lg overflow-hidden">
+                  <VideoPlayer
+                    src="/assets/flocken/videos/para.mp4"
+                    poster="/assets/flocken/screenshots/flocken_para_karta-alla-hundar.png"
+                  />
+                </div>
               </div>
 
               {/* Information */}
@@ -224,11 +225,13 @@ export default function FunktionerPage() {
               </div>
 
               {/* Video */}
-              <div className="relative w-full max-w-sm mx-auto lg:order-1 lg:sticky lg:top-32">
-                <VideoInPhone
-                  src="/assets/flocken/videos/passa.mp4"
-                  poster="/assets/flocken/screenshots/flocken_screens_passa_agneta-preview-b.png"
-                />
+              <div className="relative w-full max-w-sm mx-auto aspect-[9/16] rounded-2xl overflow-hidden shadow-card bg-flocken-sand lg:order-1 lg:sticky lg:top-32 p-3">
+                <div className="w-full h-full border-4 border-black rounded-lg overflow-hidden">
+                  <VideoPlayer
+                    src="/assets/flocken/videos/passa.mp4"
+                    poster="/assets/flocken/screenshots/flocken_screens_passa_agneta-preview-b.png"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -254,11 +257,13 @@ export default function FunktionerPage() {
 
             <div className="grid lg:grid-cols-2 gap-12 items-start mb-12">
               {/* Video */}
-              <div className="relative w-full max-w-sm mx-auto aspect-[9/16] rounded-2xl overflow-hidden shadow-card bg-flocken-sand lg:sticky lg:top-32">
-                <VideoPlayer
-                  src="/assets/flocken/videos/rasta.mp4"
-                  poster="/assets/flocken/screenshots/flocken_rasta_starta-promenad.png"
-                />
+              <div className="relative w-full max-w-sm mx-auto aspect-[9/16] rounded-2xl overflow-hidden shadow-card bg-flocken-sand lg:sticky lg:top-32 p-3">
+                <div className="w-full h-full border-4 border-black rounded-lg overflow-hidden">
+                  <VideoPlayer
+                    src="/assets/flocken/videos/rasta.mp4"
+                    poster="/assets/flocken/screenshots/flocken_rasta_starta-promenad.png"
+                  />
+                </div>
               </div>
 
               {/* Information */}
